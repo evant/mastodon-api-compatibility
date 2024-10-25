@@ -1,0 +1,50 @@
+<article class="api-methods">
+    <header class="headline">
+        {{ partial "content-header.html" . }}
+    </header>
+    {{ partial "heading-pre.html" . }}
+    {{ partial "heading.html" . }}
+    {{ partial "heading-post.html" . }}
+    {{ range .Params.api }}
+    <h2><span class="request">{{ .request }}</span></h2>
+    <table>
+        <tr>
+            <th>Software</th>
+            <th>Version</th>
+        </tr>
+        {{ $request_software := .software }}
+        {{ range $key, $software := $.Params.software }}
+        {{ $name := $software.name }}
+        {{ $version := index $request_software $key }}
+        <tr>
+            {{ if reflect.IsMap $version }}
+            <td>
+                {{ if $version.docs }}
+                <a href="{{ $version.docs }}"> {{ $name }} </a>
+                {{ else }}
+                <a href=""> {{ $name }} </a>
+                {{ end }}
+            </td>
+            <td>{{$version.version}}</td>
+            {{ else if not $version }}
+            <td>{{ $name }}</td>
+            {{ else }}
+            <td>
+                <a href="{{ $software.docs }}"> {{ $name }} </a>
+            </td>
+            <td>{{$version}}</td>
+            {{ end }}
+        </tr>
+        {{ end }}
+    </table>
+    {{ if .params }}
+    <h3>Parmaters</h3>
+    {{ partial "version-table" (dict "software" $.Params.software "values"
+    .params) }} {{ end }} {{ if .response }}
+    <h3>Response</h3>
+    {{ partial "version-table" (dict "software" $.Params.software "values"
+    .response) }} {{ end }} {{ end }} {{ partial "article-content.html" . }}
+    <footer class="footline">
+        {{ partial "content-footer.html" . }}
+    </footer>
+</article>

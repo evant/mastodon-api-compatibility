@@ -1,0 +1,15 @@
+{{ $data := site.Data.api }}
+
+{{ range $section, $api := $data.api }}
+    {{ $content := dict
+        "mediaType" "text/markdown"
+    }}
+    {{ $page := dict
+        "content" $content
+        "params" (dict "software" $data.software "api" $api)
+        "kind" "page"
+        "path" $section
+        "title" (printf "/%s" $section)
+    }}
+    {{ $.AddPage $page }}
+{{ end }}
