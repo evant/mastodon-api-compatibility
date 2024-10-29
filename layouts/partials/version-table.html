@@ -1,28 +1,34 @@
 <table>
-    <tr>
-        <th></th>
-        {{ range $.software }}
-        <th>{{ .name }}</th>
-        {{ end }}
-    </tr>
-    {{ range $name, $software := $.values }}
-    <tr>
-        <td>{{ $name }}</td>
-        {{ range $.software }}
-	{{ $version := index $software .key }}
-        <td>
-            {{ if reflect.IsMap $version }} {{ if $version.deprecated }}
-            <span data-tooltip="deprecated in {{ $version.deprecated }}"
-                >{{ $version.version }}*</span
-            >
-            {{ else if $version.note }}
-            <span data-tooltip="{{ $version.note }}"
-                >{{ $version.version }}*</span
-            >
-            {{ else }} {{ $version.version }} {{ end }} {{ else }} {{ $version
-            }} {{ end }}
-        </td>
-        {{ end }}
-    </tr>
-    {{ end }}
+	<tr>
+		<th></th>
+		{{ range $.software }}
+		<th>{{ .name }}</th>
+		{{ end }}
+	</tr>
+	{{ range $name, $value := $.values }}
+	<tr>
+		{{ if reflect.IsMap $value }}
+		{{ $entity := index $.entities $value.entity }}
+		<td>
+		{{ $name }}
+		{{ if $entity }}
+		(<a href="/api-entities/{{ $value.entity }}">{{ $entity.name }}</a>)
+		{{ end }}
+		</td>
+		{{ range $.software }}
+		{{ $version := index $value .key }}
+		<td>{{ partial "version-table-version" $version }}</td>
+		{{ end }}
+		{{ else }}
+		<td>
+		{{ $name }}
+		{{ $entity := index $.entities $value }}
+		(<a href="/api-entities/{{ $value }}">{{ $entity.name }}</a>)
+		</td>
+		{{ range $entity.software }}
+		<td>{{ partial "version-table-version" .version }}</td>
+		{{ end }}
+		{{ end }}
+	</tr>
+	{{ end }}
 </table>

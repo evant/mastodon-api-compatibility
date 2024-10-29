@@ -1,0 +1,66 @@
+[[api]]
+request = "GET /oauth/authorize"
+[api.software]
+mastodon.version = "0.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/oauth/#authorize"
+[api.oauth.params]
+response_type.mastodon = "0.1.0"
+client_id.mastodon = "0.1.0"
+redirect_uri.mastodon = "0.1.0"
+scope.mastodon = "0.1.0"
+state.mastodon = "0.1.0"
+code_challenge.mastodon = "4.3.0"
+code_challenge_method.mastodon = "4.3.0"
+force_login.mastodon = "2.6.0"
+lang.mastodon = "3.5.0"
+[api.oauth.response]
+code.mastodon = "0.1.0"
+state.mastodon = "0.1.0"
+
+[[api]]
+request = "POST /oauth/token"
+[api.software]
+mastodon.version = "0.1.0"
+matodon.docs = "https://docs.joinmastodon.org/methods/oauth/#token"
+[api.params]
+grant_type.mastodon = "0.1.0"
+code.mastodon = "0.1.0"
+client_id.mastodon = "0.1.0"
+client_secret.mastodon = "0.1.0"
+redirect_uri.mastodon = "0.1.0"
+code_verifier.mastodon = "4.3.0"
+scope.mastodon = "0.1.0"
+[api.response]
+access_token.mastodon = "0.1.0"
+token_type.mastodon = "0.1.0"
+scope.mastodon = "0.1.0"
+created_at.mastodon = "0.1.0"
+
+[[api]]
+request = "POST /oauth/revoke"
+[api.software]
+mastodon.version = "0.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/oauth/#revoke"
+[api.params]
+client_id.mastodon = "0.1.0"
+client_secret.mastodon = "0.1.0"
+token.mastodon = "0.1.0"
+
+[[api]]
+request = "GET /.well-known/oauth-authorization-server"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/oauth/#authorization-server-metadata"
+[api.response]
+issuer.mastodon = "4.3.0"
+service_documentation.mastodon = "4.3.0"
+authorization_endpoint.mastodon = "4.3.0"
+token_endpoint.mastodon = "4.3.0"
+app_registration_endpoint.mastodon = "4.3.0"
+revocation_endpoint.mastodon = "4.3.0"
+scopes_supported.mastodon = "4.3.0"
+response_types_supported.mastodon = "4.3.0"
+response_modes_supported.mastodon = "4.3.0"
+code_challenge_methods_supported.mastodon = "4.3.0"
+grant_types_supported.mastodon = "4.3.0"
+token_endpoint_auth_methods_supported.mastodon = "4.3.0"

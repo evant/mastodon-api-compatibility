@@ -1,0 +1,11 @@
+{{ if reflect.IsMap $ }}
+{{ if $.deprecated }}
+<span data-tooltip="deprecated in {{ $.deprecated }}">{{ $.version }}*</span>
+{{ else if $.note }}
+<span data-tooltip="{{ $.note }}">{{ $.version }}*</span>
+{{ else }}
+{{ $.version }} 
+{{ end }}
+{{ else }}
+{{ $ }}
+{{ end }}
