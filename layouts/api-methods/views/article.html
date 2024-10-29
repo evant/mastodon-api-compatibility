@@ -25,7 +25,7 @@
     {{ end }}
     {{ $response := index $.Params.entities $response_key }}
     <h4>
-        <a href="{{ printf "/api-entities/%s" $response_key | relURL }}">
+        <a href="{{ printf "api-entities/%s" $response_key | absURL }}">
             {{ $response.name }}
             {{ if $array }}
             []
