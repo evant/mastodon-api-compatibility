@@ -12,7 +12,7 @@
 		<td>
 		{{ $name }}
 		{{ if $entity }}
-		(<a href="/api-entities/{{ $value.entity }}">{{ $entity.name }}</a>)
+		(<a href="/api-entities/{{ $value.entity }}/index.html">{{ $entity.name }}</a>)
 		{{ end }}
 		</td>
 		{{ range $.software }}
@@ -23,7 +23,7 @@
 		<td>
 		{{ $name }}
 		{{ $entity := index $.entities $value }}
-		(<a href="/api-entities/{{ $value }}">{{ $entity.name }}</a>)
+		(<a href="/api-entities/{{ $value }}/index.html">{{ $entity.name }}</a>)
 		</td>
 		{{ range $entity.software }}
 		<td>{{ partial "version-table-version" .version }}</td>
