@@ -1,0 +1,29 @@
+<table>
+        <tr>
+            <th>Software</th>
+            <th>Version</th>
+        </tr>
+        {{ range $.software }}
+        {{ $version := index $.values .key }}
+        <tr>
+            {{ if reflect.IsMap $version }}
+            <td>
+                {{ if $version.docs }}
+                <a href="{{ $version.docs }}"> {{ .name }} </a>
+                {{ else }}
+                <a href="{{ .docs }}"> {{ .name }} </a>
+                {{ end }}
+            </td>
+            <td>{{$version.version}}</td>
+            {{ else if not $version }}
+            <td>{{ .name }}</td>
+	    <td></td>
+            {{ else }}
+            <td>
+                <a href="{{ .docs }}"> {{ .name }} </a>
+            </td>
+            <td>{{$version}}</td>
+            {{ end }}
+        </tr>
+        {{ end }}
+    </table>

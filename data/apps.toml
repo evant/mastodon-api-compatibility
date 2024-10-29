@@ -1,0 +1,56 @@
+[entity.application]
+name = "Application"
+[entity.application.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Application"
+gotosocial.version = "0.1.0"
+[entity.application.attributes]
+name.mastodon = "2.0.0"
+name.gotosocial = "0.1.0"
+website.mastodon = { version = "2.0.0", note = "nullable in 3.4.1" }
+website.gotosocial = "0.1.0"
+scopes.mastodon = "4.3.0"
+redirect_uris.mastodon = "4.3.0"
+vapid_keys.mastodon = { version = "2.7.2", deprecated = "4.3.0" }
+
+[[api]]
+request = "POST /api/v1/apps"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/apps#create"
+gotosocial = "0.1.0"
+[api.params]
+client_name.mastodon = "0.0.0"
+client_name.gotosocial = "0.1.0"
+redirect_uris.mastodon = "4.3.0"
+redirect_uris.gotosocial = "0.1.0"
+scopes.mastodon = "0.0.0"
+scopes.gotosocial = "0.1.0"
+website.mastodon = "0.0.0"
+website.gotosocial = "0.1.0"
+vapid_keys.mastodon = { version = "2.7.2", deprecated = "4.3.0" }
+redirect_uri.mastodon = { version = "0.0.0", deprecated = "4.3.0" }
+[api.response]
+id.mastodon = "0.0.0"
+id.gotosocial = "0.1.0"
+name.mastodon = "0.0.0"
+name.gotosocial = "0.1.0"
+website.mastodon = { version = "0.0.0", note = "nullable in 3.4.1" }
+webiste.gotosocial = "0.1.0"
+scopes.mastodon = "4.3.0"
+redirect_uris.mastodon = "4.3.0"
+redirect_uri.mastodon = { version = "0.0.0", deprecated = "4.3.0" }
+redirect_uri.gotosocial = "0.1.0"
+vapid_keys.mastodon = { version = "2.8.0", deprecated = "4.3.0" }
+client_id.mastodon = "0.0.0"
+client_id.gotosocial = "0.1.0"
+client_secret.mastodon = "0.0.0"
+client_secret.gotosocial = "0.1.0"
+client_secret_expires_at.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v1/apps/verify_credentials"
+response = "application"
+[api.software]
+mastodon.version = "2.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/apps/#verify_credentials"

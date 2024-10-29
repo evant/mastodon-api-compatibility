@@ -1,0 +1,206 @@
+[entity.notification]
+name = "Notification"
+[entity.notification.software]
+mastodon.version = "0.9.9"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Notification/"
+[entity.notification.attributes]
+id.mastodon = "0.9.9"
+type = "notification-type"
+group_key.mastodon = "4.3.0"
+created_at.mastodon = "0.9.9"
+account.entity = "account"
+account.mastodon = "0.9.9"
+status.mastodon = "0.9.9"
+report.mastodon = "4.0.0"
+relationship_severance_event.mastodon = "4.3.0"
+moderation_warning.mastodon = "4.3.0"
+
+[entity.notification-type]
+name = "Notification Type"
+[entity.notification-type.software]
+mastodon.version = "0.9.9"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Notification/#type"
+[entity.notification-type.values]
+mention.mastodon = "0.9.9"
+status.mastodon = "3.3.0"
+rebog.mastodon = "0.9.9"
+follow.mastodon = "0.9.9"
+follow_request.mastodon = "3.1.0"
+favourite.mastodon = "0.9.9"
+poll.mastodon = "2.8.0"
+update.mastodon = "3.5.0"
+"admin.sign_up".mastodon = "3.5.0"
+"admin.report".mastodon = "4.0.0"
+severed_relationships.mastodon = "4.3.0"
+moderation_warning.mastodon = "4.3.0"
+
+[entity.notification-policy]
+name = "Notification Policy"
+[entity.notification-policy.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/NotificationPolicy/"
+[entity.notification-policy.attributes]
+for_not_following.mastodon = "3.4.0"
+for_not_followers.mastodon = "3.4.0"
+for_private_mentions.mastodon = "3.4.0"
+for_limited_accounts.mastodon = "3.4.0"
+summary.mastodon = "3.4.0"
+"summary[pending_requests_count]".mastodon = "3.4.0"
+"summary[pending_notifications_count]".mastodon = "3.4.0"
+
+[entity.notification-request]
+name = "Notification Request"
+[entity.notification-request.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/NotificationRequest/"
+[entity.notification-request.attributes]
+id.mastodon = "4.3.0"
+updated_at.mastodon = "4.3.0"
+account.entity = "account"
+account.mastodon = "4.3.0"
+notifications_count.mastodon = "4.3.0"
+last_status.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v1/notifications"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get"
+[api.params]
+max_id.mastodon = { version = "0.0.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "0.0.0"
+min_id.mastodon = { version = "2.6.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = { version = "0.0.0", note = "default changed from 15 to 40, max changed from 30 to 80 in 4.1.0" }
+"types[]".entity = "notification"
+"types[]".mastodon = "3.5.0"
+"exclude_types[]".entity = "notification"
+"exclude_types[]".mastodon = "0.0.0"
+account_id.mastodon = "2.9.0"
+include_filtered.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v1/notifications/:id"
+response = "notification"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get-one"
+[api.notifications.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/notifications/clear"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#clear"
+
+[[api]]
+request = "POST /api/v1/notifications/:id/dismiss"
+[api.software]
+mastodon.version = "1.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#dismiss"
+[api.params]
+id.mastodon = "1.3.0"
+
+[[api]]
+request = "POST /api/v1/notifications/dismiss"
+[api.software]
+mastodon.version = "0.0.0"
+# TODO: render deprecated/removed
+mastodon.deprecated = "1.3.0"
+mastodon.removed = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#dismiss-deprecated"
+
+[[api]]
+request = "GET /api/v1/notifications/unread_count"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#unread-count"
+[api.params]
+limit.mastodon = "4.3.0"
+"types[]".entity = "notification-type"
+"types[]".mastodon = "4.3.0"
+"exclude_types[]".entity = "notification-type"
+"exclude_types[]".mastodon = "4.3.0"
+account_id.mastodon = "4.3.0"
+[api.response]
+count.mastodon = "4.3.0"
+
+[[api]]
+request = "GET api/v2/notifications/policy"
+response = "notification-policy"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get-policy"
+
+[[api]]
+request = "PATCH /api/v2/notifications/policy"
+response = "notification-policy"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#update-the-filtering-policy-for-notifications"
+[api.params]
+for_not_following.mastodon = "3.4.0"
+for_not_followers.mastodon = "3.4.0"
+for_private_mentions.mastodon = "3.4.0"
+for_limited_accounts.mastodon = "3.4.0"
+
+[[api]]
+request = "GET /api/v1/notifications/requests"
+response = "notification-request[]"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get-requests"
+[api.params]
+max_id.mastodon = "3.4.0"
+since_id.mastodon = "3.4.0"
+min_id.mastodon = "3.4.0"
+limit.mastodon = "3.4.0"
+
+[[api]]
+request = "GET /api/v1/notifications/requests/:id"
+response = "notification-request"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get-one-request"
+[api.params]
+id.mastodon = "3.4.0"
+
+[[api]]
+request = "POST /api/v1/notifications/requests/:id/accept"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#accept-request"
+[api.params]
+id.mastodon = "3.4.0"
+
+[[api]]
+request = "POST /api/v1/notifications/requests/:id/dismiss"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#dismiss-request"
+[api.params]
+id.mastodon = "3.4.0"
+
+[[api]]
+request = "POST /api/v1/notifications/requests/accept"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#accept-multiple-requests"
+[api.params]
+"id[]".mastodon = "3.4.0"
+
+[[api]]
+request = "POST /api/v1/notifications/requests/dismiss"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#dismiss-multiple-requests"
+[api.params]
+"id[]".mastodon = "3.4.0"
+
+[[api]]
+request = "GET /api/v1/notifications/requests/merged"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#requests-merged"
+[api.response]
+merged.mastodon = "3.4.0"

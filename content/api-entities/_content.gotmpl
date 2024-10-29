@@ -7,18 +7,16 @@
 {{ end }}
 {{ end }}
 
-{{ range $section, $content := site.Data }}
-    {{ if $content.api }}
+{{ range $key, $value := $entities }}
     {{ $page := dict
         "content" (dict "mediaType" "text/markdown")
         "params" (dict
             "software" $software
             "entities" $entities
-            "api" $content.api)
+            "entity" $value)
         "kind" "page"
-        "path" $section
-        "title" (printf "/%s" $section)
+        "path" $key
+        "title" $value.name
     }}
     {{ $.AddPage $page }}
-    {{ end }}
 {{ end }}

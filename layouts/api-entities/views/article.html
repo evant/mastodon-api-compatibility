@@ -1,0 +1,23 @@
+<article class="api-methods">
+    <header class="headline">
+        {{ partial "content-header.html" . }}
+    </header>
+    {{ partial "heading-pre.html" . }}
+    {{ partial "heading.html" . }}
+    {{ partial "heading-post.html" . }}
+    {{ with $.Params.entity }}
+    {{ partial "software-table" (dict "software" $.Params.software "values" .software) }}
+    {{ if .attributes }}
+    <h3>Attributes</h3>
+    {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" .attributes) }}
+    {{ end }}
+    {{ if .values }}
+    <h3>Values</h3>
+    {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" .values) }}
+    {{ end }}
+    {{ partial "article-content.html" . }}
+    {{ end }}
+    <footer class="footline">
+        {{ partial "content-footer.html" . }}
+    </footer>
+</article>

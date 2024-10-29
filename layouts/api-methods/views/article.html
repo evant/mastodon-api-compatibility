@@ -7,42 +7,36 @@
     {{ partial "heading-post.html" . }}
     {{ range .Params.api }}
     <h2><span class="request">{{ .request }}</span></h2>
-    <table>
-        <tr>
-            <th>Software</th>
-            <th>Version</th>
-        </tr>
-        {{ $request_software := .software }}
-        {{ range $.Params.software }}
-        {{ $version := index $request_software .key }}
-        <tr>
-            {{ if reflect.IsMap $version }}
-            <td>
-                {{ if $version.docs }}
-                <a href="{{ $version.docs }}"> {{ .name }} </a>
-                {{ else }}
-                <a href=""> {{ .name }} </a>
-                {{ end }}
-            </td>
-            <td>{{$version.version}}</td>
-            {{ else if not $version }}
-            <td>{{ .name }}</td>
-            {{ else }}
-            <td>
-                <a href="{{ .docs }}"> {{ .name }} </a>
-            </td>
-            <td>{{$version}}</td>
-            {{ end }}
-        </tr>
-        {{ end }}
-    </table>
+    {{ partial "software-table" (dict "software" $.Params.software "values" .software) }}
     {{ if .params }}
     <h3>Parmaters</h3>
-    {{ partial "version-table" (dict "software" $.Params.software "values"
-    .params) }} {{ end }} {{ if .response }}
+    {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" .params) }}
+    {{ end }}
+    {{ if .response }}
     <h3>Response</h3>
-    {{ partial "version-table" (dict "software" $.Params.software "values"
-    .response) }} {{ end }} {{ end }} {{ partial "article-content.html" . }}
+    {{ if reflect.IsMap .response }}
+    {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" .response) }}
+    {{ else }}
+    {{ $response_key := .response }}
+    {{ $array := false }}
+    {{ if hasSuffix $response_key "[]" }}
+    {{ $array = true }}
+    {{ $response_key = substr $response_key 0 -2 }}
+    {{ end }}
+    {{ $response := index $.Params.entities $response_key }}
+    <h4>
+        <a href="/api-entities/{{$response_key}}">
+            {{ $response.name }}
+            {{ if $array }}
+            []
+            {{ end }}
+        </a>
+    </h4>
+    {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" $response.attributes) }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    {{ partial "article-content.html" . }}
     <footer class="footline">
         {{ partial "content-footer.html" . }}
     </footer>

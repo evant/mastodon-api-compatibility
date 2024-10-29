@@ -1,0 +1,55 @@
+[entity.account]
+name = "Account"
+[entity.account.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Account/"
+[entity.account.attributes]
+id.mastodon = "0.1.0"
+username.mastodon = "0.1.0"
+acct.mastodon = "0.1.0"
+url.mastodon = "0.1.0"
+display_name.mastodon = "0.1.0"
+note.mastodon = "0.1.0"
+avatar.mastodon = "0.1.0"
+avatar_static.mastodon = "1.1.2"
+header.mastodon = "0.1.0"
+header_static.mastodon = "1.1.2"
+locked.mastodon = "0.1.0"
+"fields[]".entity = "field"
+"fields[]".mastodon = "2.4.0"
+"emojis[]".entity = "custom-emoji"
+"emojis[]".mastodon = "2.4.0"
+bot.mastodon = "2.4.0"
+group.mastodon = "3.1.0"
+discoverable.mastodon = "3.1.0"
+noindex.mastodon = "4.0.0"
+moved.mastodon = "2.1.0"
+suspended.mastodon = "3.3.0"
+limited.mastodon = "3.5.3"
+created_at.mastodon = { version = "0.1.0", note = "resolves to midnight instead of an exact time in 3.4.0" }
+last_status_at.mastodon = { version = "3.0.0", note = "returns date only in 3.1.0" }
+statuses_count.mastodon = "0.1.0"
+followers_count.mastodon = "0.1.0"
+following_count.mastodon = "0.1.0"
+
+[entity.field]
+name = "Field"
+[entity.field.software]
+mastodon.version = "2.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Account/#Field"
+[entity.field.attributes]
+name.mastodon = "2.4.0"
+value.mastodon = "2.4.0"
+verified_at.mastodon = "2.6.0"
+
+[entity.custom-emoji]
+name = "Custom Emoji"
+[entity.custom-emoji.software]
+mastodon.version = "2.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/CustomEmoji/"
+[entity.custom-emoji.attributes]
+shortcode.mastodon = "2.0.0"
+url.mastodon = "2.0.0"
+static_url.mastodon = "2.0.0"
+visible_in_picker.mastodon = "2.0.0"
+category.mastodon = "3.0.0"
