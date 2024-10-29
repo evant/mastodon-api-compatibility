@@ -1,0 +1,5 @@
+{
+    "remoteEnv": {
+      "BASE_URL": "${CODESPACE_NAME}-8080.${GITHUB_CODESPACS_FORWARDING_DOMAIN}"
+    }
+}
