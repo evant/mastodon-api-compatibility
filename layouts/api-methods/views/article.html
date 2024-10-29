@@ -25,7 +25,7 @@
     {{ end }}
     {{ $response := index $.Params.entities $response_key }}
     <h4>
-        <a href="/api-entities/{{$response_key}}">
+        <a href="/api-entities/{{$response_key}}/index.html">
             {{ $response.name }}
             {{ if $array }}
             []
