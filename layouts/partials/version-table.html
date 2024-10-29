@@ -8,7 +8,8 @@
     {{ range $name, $software := $.values }}
     <tr>
         <td>{{ $name }}</td>
-        {{ range $k, $_ := $.software }} {{ $version := index $software $k }}
+        {{ range $.software }}
+	{{ $version := index $software .key }}
         <td>
             {{ if reflect.IsMap $version }} {{ if $version.deprecated }}
             <span data-tooltip="deprecated in {{ $version.deprecated }}"

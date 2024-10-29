@@ -13,24 +13,23 @@
             <th>Version</th>
         </tr>
         {{ $request_software := .software }}
-        {{ range $key, $software := $.Params.software }}
-        {{ $name := $software.name }}
-        {{ $version := index $request_software $key }}
+        {{ range $.Params.software }}
+        {{ $version := index $request_software .key }}
         <tr>
             {{ if reflect.IsMap $version }}
             <td>
                 {{ if $version.docs }}
-                <a href="{{ $version.docs }}"> {{ $name }} </a>
+                <a href="{{ $version.docs }}"> {{ .name }} </a>
                 {{ else }}
-                <a href=""> {{ $name }} </a>
+                <a href=""> {{ .name }} </a>
                 {{ end }}
             </td>
             <td>{{$version.version}}</td>
             {{ else if not $version }}
-            <td>{{ $name }}</td>
+            <td>{{ .name }}</td>
             {{ else }}
             <td>
-                <a href="{{ $software.docs }}"> {{ $name }} </a>
+                <a href="{{ .docs }}"> {{ .name }} </a>
             </td>
             <td>{{$version}}</td>
             {{ end }}
