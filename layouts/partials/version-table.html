@@ -12,9 +12,7 @@
 		<td>
 		{{ $name }}
 		{{ if $entity }}
-		(<a href="{{ printf "api-entities/%s" $value.entity | absURL }}">
-			{{ $entity.name }}
-		</a>)
+		(<a href="{{ printf "api-entities/%s" $value.entity | absURL }}">{{ $entity.name }}</a>)
 		{{ end }}
 		</td>
 		{{ range $.software }}
@@ -25,9 +23,7 @@
 		<td>
 		{{ $name }}
 		{{ $entity := index $.entities $value }}
-		(<a href="{{ printf "api-entities/%s" $value | absURL }}">
-			{{ $entity.name }}
-		</a>)
+		(<a href="{{ printf "api-entities/%s" $value | absURL }}">{{ $entity.name }}</a>)
 		</td>
 		{{ range $entity.software }}
 		<td>{{ partial "version-table-version" .version }}</td>

@@ -1,10 +1,19 @@
 {{ if reflect.IsMap $ }}
+{{ $.version }}
+{{ if $.note }}
+<span data-tooltip="{{ $.note }}">
+    <i class="fa-solid fa-circle-info"></i>
+</span>
+{{ end }}
 {{ if $.deprecated }}
-<span data-tooltip="deprecated in {{ $.deprecated }}">{{ $.version }}*</span>
-{{ else if $.note }}
-<span data-tooltip="{{ $.note }}">{{ $.version }}*</span>
-{{ else }}
-{{ $.version }} 
+<span data-tooltip="deprecated in {{ $.deprecated }}">
+    <i class="fa-solid fa-triangle-exclamation orange"></i>
+</span>
+{{ end }}
+{{ if $.removed }}
+<span data-tooltip="removed in {{ $.removed }}">
+   <i class="fa-solid fa-square-xmark red"></i>
+</span>
 {{ end }}
 {{ else }}
 {{ $ }}

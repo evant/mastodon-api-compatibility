@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Mastodon Api Compatiblity'
+title = 'Mastodon Api Compatibility'
 
 [module]
 [[module.imports]]

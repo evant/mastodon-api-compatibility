@@ -2855,10 +2855,17 @@ body.notfound #shrug svg {
     --VARIABLE-BOX-TEXT-color: var(--INTERNAL-MAIN-TEXT-color);
 }
 
+i.orange {
+    color: var(--INTERNAL-BOX-ORANGE-color);
+}
+
+i.red {
+    color: var(--INTERNAL-BOX-RED-color);
+}
+
 [data-tooltip] {
     position: relative;
     cursor: help;
-    text-decoration: underline;
 }
 
 [data-tooltip]:hover::before {
