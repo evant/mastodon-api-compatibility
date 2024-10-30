@@ -1,12 +1,69 @@
+[entity.token]
+name = "Token"
+[entity.token.software]
+mastodon.version = "0.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Token/"
+[entity.token.attributes]
+access_token.mastodon = "0.1.0"
+token_type.mastodon = "0.1.0"
+scope.entity = "oauth-scope"
+scope.mastodon = "0.1.0"
+created_at.mastodon = "0.1.0"
+
+[entity.oauth-scope]
+name = "OAuth Scope"
+[entity.oauth-scope.software]
+mastodon.version = "0.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/api/oauth-scopes/"
+[entity.oauth-scope.values]
+read.mastodon = "0.9.0"
+"read:accounts".mastodon = "2.4.3"
+"read:blocks".mastodon = "2.4.3"
+"read:bookmarks".mastodon = "3.1.0"
+"read:favourites".mastodon = "2.4.3"
+"read:filters".mastodon = "2.4.3"
+"read:follows".mastodon = "2.4.3"
+"read:lists".mastodon = "2.4.3"
+"read:mutes".mastodon = "2.4.3"
+"read:notifications".mastodon = "2.4.3"
+"read:search".mastodon = "2.4.3"
+"read:statuses".mastodon = "2.4.3"
+"read:reports".mastodon = { version = "2.4.3", deprecated = "2.6.0" }
+write.mastodon = "0.9.0"
+"write:accounts".mastodon = "2.4.3"
+"write:blocks".mastodon = "2.4.3"
+"write:bookmarks".mastodon = "3.1.0"
+"write:conversations".mastodon = "2.6.0"
+"write:favourites".mastodon = "2.4.3"
+"write:filters".mastodon = "2.4.3"
+"write:follows".mastodon = "2.4.3"
+"write:lists".mastodon = "2.4.3"
+"write:media".mastodon = "2.4.3"
+"write:mutes".mastodon = "2.4.3"
+"write:notifications".mastodon = "2.4.3"
+"write:reports".mastodon = "2.4.3"
+"write:statuses".mastodon = "2.4.3"
+follow.mastodon = { version = "0.9.0", deprecated = "3.5.0" }
+"admin:read".mastodon = "2.9.1"
+"admin:read:accounts".mastodon = "2.9.1"
+"admin:read:reports".mastodon = "2.9.1"
+"admin:write".mastodon = "2.9.1"
+"admin:write:accounts".mastodon = "2.9.1"
+"admin:write:reports".mastodon = "2.9.1"
+profile.mastodon = "4.3.0"
+push.mastodon = "2.4.0"
+crypto.mastodon = { version = "3.2.0", removed = "4.3.0" }
+
 [[api]]
 request = "GET /oauth/authorize"
 [api.software]
 mastodon.version = "0.1.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/oauth/#authorize"
-[api.oauth.params]
+[api.params]
 response_type.mastodon = "0.1.0"
 client_id.mastodon = "0.1.0"
 redirect_uri.mastodon = "0.1.0"
+scope.entity = "oauth-scope"
 scope.mastodon = "0.1.0"
 state.mastodon = "0.1.0"
 code_challenge.mastodon = "4.3.0"
@@ -19,6 +76,7 @@ state.mastodon = "0.1.0"
 
 [[api]]
 request = "POST /oauth/token"
+response = "token"
 [api.software]
 mastodon.version = "0.1.0"
 matodon.docs = "https://docs.joinmastodon.org/methods/oauth/#token"
@@ -29,12 +87,8 @@ client_id.mastodon = "0.1.0"
 client_secret.mastodon = "0.1.0"
 redirect_uri.mastodon = "0.1.0"
 code_verifier.mastodon = "4.3.0"
+scope.entity = "oauth-scope"
 scope.mastodon = "0.1.0"
-[api.response]
-access_token.mastodon = "0.1.0"
-token_type.mastodon = "0.1.0"
-scope.mastodon = "0.1.0"
-created_at.mastodon = "0.1.0"
 
 [[api]]
 request = "POST /oauth/revoke"
@@ -58,9 +112,10 @@ authorization_endpoint.mastodon = "4.3.0"
 token_endpoint.mastodon = "4.3.0"
 app_registration_endpoint.mastodon = "4.3.0"
 revocation_endpoint.mastodon = "4.3.0"
-scopes_supported.mastodon = "4.3.0"
-response_types_supported.mastodon = "4.3.0"
-response_modes_supported.mastodon = "4.3.0"
-code_challenge_methods_supported.mastodon = "4.3.0"
-grant_types_supported.mastodon = "4.3.0"
-token_endpoint_auth_methods_supported.mastodon = "4.3.0"
+"scopes_supported[]".entity = "oauth-scope"
+"scopes_supported[]".mastodon = "4.3.0"
+"response_types_supported[]".mastodon = "4.3.0"
+"response_modes_supported[]".mastodon = "4.3.0"
+"code_challenge_methods_supported[]".mastodon = "4.3.0"
+"grant_types_supported[]".mastodon = "4.3.0"
+"token_endpoint_auth_methods_supported[]".mastodon = "4.3.0"
