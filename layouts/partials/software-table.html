@@ -14,16 +14,14 @@
                 <a href="{{ .docs }}"> {{ .name }} </a>
                 {{ end }}
             </td>
-            <td>{{$version.version}}</td>
             {{ else if not $version }}
             <td>{{ .name }}</td>
-	    <td></td>
             {{ else }}
             <td>
                 <a href="{{ .docs }}"> {{ .name }} </a>
             </td>
-            <td>{{$version}}</td>
             {{ end }}
+            <td>{{ partial "version-table-version" $version }}</td>
         </tr>
         {{ end }}
     </table>

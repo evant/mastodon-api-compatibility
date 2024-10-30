@@ -9,7 +9,7 @@
     <h2><span class="request">{{ .request }}</span></h2>
     {{ partial "software-table" (dict "software" $.Params.software "values" .software) }}
     {{ if .params }}
-    <h3>Parmaters</h3>
+    <h3>Parameters</h3>
     {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" .params) }}
     {{ end }}
     {{ if .response }}
