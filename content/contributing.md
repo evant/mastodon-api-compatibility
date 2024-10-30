@@ -8,4 +8,4 @@ title = 'Contributing'
 Add more detail
 {{% /notice %}}
 
-Data is stored in data/api.toml.
+Data is stored in data/*.toml.
