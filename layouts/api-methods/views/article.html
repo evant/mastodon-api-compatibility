@@ -6,16 +6,21 @@
     {{ partial "heading.html" . }}
     {{ partial "heading-post.html" . }}
     {{ range .Params.api }}
-    <h2><span class="request">{{ .request }}</span></h2>
+    <h2 id="{{ .request }}" class="request">{{ .request }}</h2>
     {{ partial "software-table" (dict "software" $.Params.software "values" .software) }}
     {{ if .params }}
-    <h3>Parameters</h3>
+    <h3 id="{{ .request }} params">Parameters</h3>
     {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" .params) }}
     {{ end }}
     {{ if .response }}
-    <h3>Response</h3>
+    <h3 id="{{ .request }} response">Response</h3>
     {{ if reflect.IsMap .response }}
     {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" .response) }}
+    {{ else if reflect.IsSlice .response }}
+    {{ range .response }}
+    <h4>{{ .code }}</h4>
+    {{ partial "version-table" (dict "software" $.Params.software "entities" $.Params.entities "values" .) }}
+    {{ end }}
     {{ else }}
     {{ $response_key := .response }}
     {{ $array := false }}

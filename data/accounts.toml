@@ -32,6 +32,51 @@ statuses_count.mastodon = "0.1.0"
 followers_count.mastodon = "0.1.0"
 following_count.mastodon = "0.1.0"
 
+[entity.credential-account]
+name = "Credential Account"
+[entity.credential-account.software]
+mastodon.version = "1.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/CredentialAccount/"
+[entity.credential-account.attributes]
+id.mastodon = "0.1.0"
+username.mastodon = "0.1.0"
+acct.mastodon = "0.1.0"
+url.mastodon = "0.1.0"
+display_name.mastodon = "0.1.0"
+note.mastodon = "0.1.0"
+avatar.mastodon = "0.1.0"
+avatar_static.mastodon = "1.1.2"
+header.mastodon = "0.1.0"
+header_static.mastodon = "1.1.2"
+locked.mastodon = "0.1.0"
+"fields[]".entity = "field"
+"fields[]".mastodon = "2.4.0"
+"emojis[]".entity = "custom-emoji"
+"emojis[]".mastodon = "2.4.0"
+bot.mastodon = "2.4.0"
+group.mastodon = "3.1.0"
+discoverable.mastodon = "3.1.0"
+noindex.mastodon = "4.0.0"
+moved.mastodon = "2.1.0"
+suspended.mastodon = "3.3.0"
+limited.mastodon = "3.5.3"
+created_at.mastodon = { version = "0.1.0", note = "resolves to midnight instead of an exact time in 3.4.0" }
+last_status_at.mastodon = { version = "3.0.0", note = "returns date only in 3.1.0" }
+statuses_count.mastodon = "0.1.0"
+followers_count.mastodon = "0.1.0"
+following_count.mastodon = "0.1.0"
+source.mastodon = "2.4.0"
+"source[note]".mastodon = "1.5.0"
+"source[fields]".entity = "field"
+"source[fields]".mastodon = "2.4.0"
+"source[privacy]".entity = "visibility"
+"source[privacy]".mastodon = "1.5.0"
+"source[sensitive]".mastodon = "1.5.0"
+"source[language]".mastodon = "2.4.2"
+"source[follow_requests_count]".mastodon = "3.0.0"
+role.entity = "role"
+role.mastodon = "4.0.0"
+
 [entity.field]
 name = "Field"
 [entity.field.software]
@@ -53,3 +98,389 @@ url.mastodon = "2.0.0"
 static_url.mastodon = "2.0.0"
 visible_in_picker.mastodon = "2.0.0"
 category.mastodon = "3.0.0"
+
+[entity.role]
+name = "Role"
+[entity.role.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Role/"
+[entity.role.attributes]
+id.mastodon = "4.0.0"
+name.mastodon = "4.0.0"
+color.mastodon = "4.0.0"
+permissions.mastodon = "4.0.0"
+highlighted.mastodon = "4.0.0"
+
+[entity.account-error]
+name = "Account Error"
+[entity.account-error.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#422-unprocessable-entity"
+[entity.account-error.values]
+err_blocked.name = "ERR_BLOCKED"
+err_blocked.mastodon = "3.4.0"
+err_unreachable.name = "ERR_UNREACHABLE"
+err_unreachable.mastodon = "3.4.0"
+err_taken.name = "ERR_TAKEN"
+err_taken.Mastodon = "3.4.0"
+err_reserved.name = "ERR_RESERVED"
+err_reserved.mastodon = "3.4.0"
+err_accepted.name = "ERR_ACCEPTED"
+err_accepted.mastodon = "3.4.0"
+err_blank.name = "ERR_BLANK"
+err_blank.Mastodon = "3.4.0"
+err_invalid.name = "ERR_INVALID"
+err_invalid.mastodon = "3.4.0"
+err_too_long.name = "ERR_TOO_LONG"
+err_too_long.mastodon = "3.4.0"
+err_too_short.name = "ERR_TOO_SHORT"
+err_too_short.mastodon = "3.4.0"
+err_inclusion.name = "ERR_INCLUSION"
+err_inclusion.mastodon = "3.4.0"
+
+[[api]]
+request = "POST /api/v1/accounts"
+[api.software]
+mastodon.version = "2.7.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#create"
+[api.params]
+username.mastodon = "2.7.0"
+email.mastodon = "2.7.0"
+password.mastodon = "2.7.0"
+agreement.mastodon = "2.7.0"
+locale.mastodon = "2.7.0"
+reason.mastodon = "3.0.0"
+[[api.response]]
+code = 422
+error.mastodon = "2.7.0"
+"details[][:key][error]".entity = "account-error"
+"details[][:key][error]".mastodon = "3.4.0"
+"details[][:key][description]".mastodon = "3.4.0"
+
+[[api]]
+request = "GET /api/v1/accounts/verify_credentials"
+response = "credential-account"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#verify_credentials"
+
+[[api]]
+request = "PATCH /api/v1/accounts/update_credentials"
+response = "credential-account"
+[api.software]
+mastodon.version = "1.1.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#update_credentials"
+[api.params]
+display_name.mastodon = "1.1.1"
+note.mastodon = "1.1.1"
+avatar.mastodon = "1.1.1"
+header.mastodon = "1.1.1"
+locked.mastodon = "2.3.0"
+bot.mastodon = "1.1.1"
+discoverable.mastodon = "2.7.0"
+hide_collections.mastodon = "4.1.0"
+indexable.mastodon = "4.2.0"
+fields_attributes.mastodon = "1.1.1"
+"fields_attributes[:index][name]".mastodon = "1.1.1"
+"fields_attributes[:index][value]".mastodon = "1.1.1"
+"source[privacy]".mastodon = "2.4.0"
+"source[sensitive]".mastodon = "2.4.0"
+"source[language]".mastodon = "2.4.2"
+
+[entity.featured-tag]
+name = "Featured Tag"
+[entity.featured-tag.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/FeaturedTag/"
+[entity.featured-tag.attributes]
+id.mastodon = "3.0.0"
+name.mastodon = "3.0.0"
+url.mastodon = "3.3.0"
+status_count.mastodon = "3.0.0"
+last_status_at.mastodon = "3.0.0"
+
+[entity.list]
+name = "List"
+[entity.list.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/List/"
+[entity.list.attributes]
+id.mastodon = "2.1.0"
+title.mastodon = "2.1.0"
+replies_policy.entity = "list-replies-policy"
+replies_policy.mastodon = "3.3.0"
+
+[entity.list-replies-policy]
+name = "Replies Policy"
+[entity.list-replies-policy.software]
+mastodon.version = "3.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/List/#replies_policy"
+[entity.list-replies-policy.values]
+followed.mastodon = "3.3.0"
+list.mastodon = "3.3.0"
+none.mastodon = "3.3.0"
+
+[entity.relationship]
+name = "Relationship"
+[entity.relationship.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Relationship/"
+[entity.relationship.attributes]
+id.mastodon = "0.6.0"
+following.mastodon = "0.6.0"
+show_reblogs.mastodon = "2.1.0"
+notifying.mastodon = "3.3.0"
+language.mastodon = "4.0.0"
+followed_by.mastodon = "0.6.0"
+blocking.mastodon = "0.6.0"
+blocked_by.mastodon = "2.8.0"
+muting.mastodon = "1.1.0"
+muting_notifications.mastodon = "2.1.0"
+requested.mastodon = "0.9.9"
+requested_by.mastodon = "4.1.0"
+domain_blocking.mastodon = "1.4.0"
+endorsed.mastodon = "2.5.0"
+note.mastodon = "3.2.0"
+
+[entity.familiar-followers]
+name = "Familiar Followers"
+[entity.familiar-followers.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/FamiliarFollowers/"
+[entity.familiar-followers.attributes]
+id.mastodon = "3.5.0"
+accounts.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/accounts/:id"
+response = "account"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#get"
+mastodon.note = "returns 410 if account is suspended in 2.4.0, returns with suspended=true instead of 410 in 3.3.0"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/accounts"
+response = "account[]"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#index"
+[api.params]
+"id[]".mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v1/accounts/:id/statuses"
+response = "status[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#statuses"
+[api.params]
+id.mastodon = "0.0.0"
+max_id.mastodon = { version = "0.0.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "0.0.0"
+min_id.mastodon = { version = "2.6.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = "0.0.0"
+only_media.mastodon = "1.4.2"
+exclude_replies.mastodon = "1.4.2"
+exclude_reblogs.mastodon = "2.7.0"
+pinned.mastodon = "1.6.0"
+tagged.mastodon = "2.8.0"
+
+[[api]]
+request = "GET /api/v1/accounts/:id/followers"
+response = "account[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#followers"
+[api.params]
+id.mastodon = "0.0.0"
+max_id.mastodon = { version = "0.0.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "0.0.0"
+min_id.mastodon = { version = "2.6.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/accounts/:id/following"
+response = "account[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#following"
+[api.params]
+id.mastodon = "0.0.0"
+max_id.mastodon = { version = "0.0.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "0.0.0"
+min_id.mastodon = { version = "2.6.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/accounts/:id/featured_tags"
+response = "featured-tag[]"
+[api.software]
+mastodon.version = "3.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#featured_tags"
+[api.params]
+id.mastodon = "3.3.0"
+
+[[api]]
+request = "GET /api/v1/accounts/:id/lists"
+response = "list[]"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#lists"
+[api.params]
+id.mastodon = "2.1.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/follow"
+response = "relationship"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#follow"
+[api.params]
+id.mastodon = "0.0.0"
+reblogs.mastodon = "0.0.0"
+notify.mastodon = "3.3.0"
+"languages[]".mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/unfollow"
+response = "relationship"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#unfollow"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/remove_from_followers"
+response = "relationship"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#remove_from_followers"
+[api.params]
+id.mastodon = "3.5.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/block"
+response = "relationship"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#block"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/unblock"
+response = "relationship"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#unblock"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/mute"
+response = "relationship"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#mute"
+[api.params]
+id.mastodon = "0.0.0"
+notifications.mastodon = "0.0.0"
+duration.mastodon = "3.5.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/unmute"
+response = "relationship"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#unmute"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/pin"
+response = "relationship"
+[api.software]
+mastodon.version = "2.5.0"
+mastodon.note = "Idempotent in 4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#pin"
+[api.params]
+id.mastodon = "2.5.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/unpin"
+response = "relationship"
+[api.software]
+mastodon.version = "2.5.0"
+mastodohn.docs = "https://docs.joinmastodon.org/methods/accounts/#unpin"
+[api.params]
+id.mastodon = "2.5.0"
+
+[[api]]
+request = "POST /api/v1/accounts/:id/note"
+response = "relationship"
+[api.software]
+mastodon.version = "3.2.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#note"
+[api.params]
+id.mastodon = "3.2.0"
+comment.mastodon = "3.2.0"
+
+[[api]]
+request = "GET /api/v1/accounts/relationships"
+response = "relationship[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#relationships"
+[api.params]
+"id[]".mastodon = "0.0.0"
+with_suspend.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v1/accounts/familiar_followers"
+response = "familiar-followers[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#familiar_followers"
+[api.params]
+"id[]".mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/accounts/search"
+response = "account[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#search"
+[api.params]
+q.mastodon = "0.0.0"
+limit.mastodon = "2.8.0"
+offset.mastodon = "2.8.0"
+resolve.mastodon = "0.0.0"
+following.mastodon = "2.8.0"
+
+[[api]]
+request = "GET /api/v1/accounts/lookup"
+response = "account"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#lookup"
+[api.params]
+acct.mastodon = "3.4.0"
+
+[[api]]
+request = "GET /api/v1/accounts/:id/identity_proofs"
+[api.software]
+mastodon.version = "2.8.0"
+mastodon.deprecated = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/accounts/#identity_proofs"
+[api.params]
+id.mastodon = "2.8.0"
+[api.response]
+provider.mastodon = "2.8.0"
+provider_username.mastodon = "2.8.0"
+updated_at.mastodon = "2.8.0"
+proof_url.mastodon = "2.8.0"
+profile_url.mastodon = "2.8.0"

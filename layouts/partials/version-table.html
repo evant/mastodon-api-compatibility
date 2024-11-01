@@ -5,10 +5,14 @@
 		<th>{{ .name }}</th>
 		{{ end }}
 	</tr>
-	{{ range $name, $value := $.values }}
+	{{ range $key, $value := $.values }}
+	{{ if reflect.IsMap $value }}
 	<tr>
-		{{ if reflect.IsMap $value }}
-		{{ $entity := index $.entities $value.entity }}
+	{{ $entity := index $.entities $value.entity }}
+	{{ $name := $value.name }}
+	{{ if not $name }}
+	{{ $name = $key }}
+	{{ end }}
 		<td>
 		{{ $name }}
 		{{ if $entity }}
@@ -19,16 +23,21 @@
 		{{ $version := index $value .key }}
 		<td>{{ partial "version-table-version" $version }}</td>
 		{{ end }}
-		{{ else }}
+	</tr>
+	{{ else }}
+	{{ $name := $key }}
+	{{ $entity := index $.entities $value }}
+	{{ if $entity }}
+	<tr>
 		<td>
 		{{ $name }}
-		{{ $entity := index $.entities $value }}
 		(<a href="{{ printf "api-entities/%s" $value | absURL }}">{{ $entity.name }}</a>)
 		</td>
 		{{ range $entity.software }}
 		<td>{{ partial "version-table-version" .version }}</td>
-		{{ end }}
-		{{ end }}
 	</tr>
+	{{ end }}
+	{{ end }}
+	{{ end }}
 	{{ end }}
 </table>

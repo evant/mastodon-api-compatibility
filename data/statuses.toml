@@ -1,0 +1,222 @@
+[entity.status]
+name = "Status"
+[entity.status.software]
+mastodon.version = "0.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Status/"
+[entity.status.attributes]
+id.mastodon = "0.1.0"
+uri.mastodon = "0.1.0"
+created_at.mastodon = "0.1.0"
+account.mastodon = "0.1.0"
+content.mastodon = "0.1.0"
+visibility.entity = "visibility"
+visibility.mastodon = "0.9.9"
+sensitive.mastodon = "0.9.9"
+spoiler_text.mastodon = "1.0.0"
+"media_attachments[]".entity = "media-attachment"
+"media_attachments[]".mastodon = "0.6.0"
+application.mastodon = "0.9.9"
+"application[name]".mastodon = "0.9.9"
+"application[website]".mastodon = { version = "0.9.9", note = "nullable in 3.5.1" }
+"mentions[]".entity = "mention"
+"mentions[]".mastodon = "0.6.0"
+"tags[]".entity = "tag"
+"tags[]".mastodon = "0.6.0"
+"emojis[]".entity = "emoji"
+"emojis[]".mastodon = "2.0.0"
+reblogs_count.mastodon = "0.1.0"
+favourites_count.mastodon = "0.1.0"
+replies_count.mastodon = "2.5.0"
+url.mastodon = "0.1.0"
+in_reply_to_id.mastodon = "0.1.0"
+in_reply_to_account_id.mastodon = "0.1.0"
+reblog.mastodon = "0.1.0"
+poll.entity = "poll"
+poll.mastodon = "2.8.0"
+card.entity = "preview-card"
+card.mastodon = "2.6.0"
+language.mastodon = "1.4.0"
+text.mastodon = "2.9.0"
+edited_at.mastodon = "3.5.0"
+favorited.mastodon = "0.1.0"
+rebogged.mastodon = "0.1.0"
+muted.mastodon = "1.4.0"
+bookmarked.mastodon = "3.1.0"
+pinned.mastodon = "1.6.0"
+"filtered[]".entity = "filter-result"
+"filtered[]".mastodon = "4.0.0"
+
+[entity.visibility]
+name = "Visibility"
+[entity.visibility.software]
+mastodon.version = "0.9.9"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Status/#visibility"
+[entity.visibility.values]
+public.mastodon = "0.9.9"
+unlisted.mastodon = "0.9.9"
+private.mastodon = "0.9.9"
+direct.mastodon = "0.9.9"
+
+[entity.media-attachment]
+name = "Media Attachment"
+
+[entity.mention]
+name = "Mention"
+[entity.mention.software]
+mastodon.version = "0.6.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Status/#Mention"
+[entity.mention.attributes]
+id.mastodon = "0.6.0"
+username.mastodon = "0.6.0"
+url.mastodon = "0.6.0"
+acct.mastodon = "0.6.0"
+
+[entity.tag]
+name = "Tag"
+[entity.tag.software]
+mastodon.version = "0.9.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Status/#Tag"
+[entity.tag.attributes]
+name.mastodon = "0.9.0"
+url.mastodon = "0.9.0"
+
+[entity.poll]
+name = "Poll"
+[entity.poll.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Poll/"
+[entity.poll.attributes]
+id.mastodon = "2.8.0"
+expires_at.mastodon = "2.8.0"
+expired.mastodon = "2.8.0"
+multiple.mastodon = "2.8.0"
+votes_count.mastodon = "2.8.0"
+voters_count.mastodon = "2.8.0"
+"options[]".entity = "poll-option"
+"options[]".mastodon = "2.8.0"
+"emojis[]".entity = "custom-emoji"
+"emojis[]".mastodon = "2.8.0"
+voted.mastodon = "2.8.0"
+own_votes.mastodon = "2.8.0"
+
+[entity.poll-option]
+name = "Poll Option"
+[entity.poll-option.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Poll/#Option"
+[entity.poll-option.attributes]
+title.mastodon = "2.8.0"
+votes_count.mastodon = "2.8.0"
+
+[entity.preview-card]
+name = "Preview Card"
+[entity.preview-card.software]
+mastodon.version = "1.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/PreviewCard/"
+[entity.preview-card.attributes]
+url.mastodon = "1.0.0"
+title.mastodon = "1.0.0"
+description.mastodon = "1.0.0"
+type.entity = "preview-card-type"
+type.mastodon = "1.3.0"
+"authors[]".entity = "preview-card-author"
+"authors[]".mastodon = "4.3.0"
+author_name.mastodon = { version = "1.3.0", deprecated = "4.3.0" }
+author_url.mastodon = { version = "1.3.0", deprecated = "4.3.0" }
+provider_name.mastodon = "1.3.0"
+provider_url.mastodon = "1.3.0"
+html.mastodon = "1.3.0"
+width.mastodon = "1.3.0"
+height.mastodon = "1.3.0"
+image.mastodon = "1.0.0"
+embed_url.mastodon = "2.1.0"
+blurhash.mastodon = "3.2.0"
+
+[entity.preview-card-type]
+name = "Preview Card Type"
+[entity.preview-card-type.software]
+mastodon.version = "1.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/PreviewCard/#type"
+[entity.preview-card-type.values]
+link.mastodon = "1.3.0"
+photo.mastodon = "1.3.0"
+video.mastodon = "1.3.0"
+
+[entity.preview-card-author]
+name = "Preview Card Author"
+[entity.preview-card-author.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/PreviewCardAuthor/"
+[entity.preview-card-author.attributes]
+name.mastodon = "4.3.0"
+url.mastodon = "4.3.0"
+account.mastodon = "4.3.0"
+
+[entity.filter-result]
+name = "Filter Result"
+[entity.filter-result.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/FilterResult/"
+[entity.filter-result.attributes]
+filter.entity = "filter"
+filter.mastodon = "4.0.0"
+"keyword_matches[]".mastodon = "4.0.0"
+"status_matches[]".mastodon = "4.0.0"
+
+[entity.filter]
+name = "Filter"
+[entity.filter.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/"
+[entity.filter.attributes]
+id.mastodon = "4.0.0"
+title.mastodon = "4.0.0"
+context.entity = "filter-context"
+context.mastodon = "4.0.0"
+expires_at.mastodon = "4.0.0"
+filter_action.entity = "filter-action"
+filter_action.mastodon = "4.0.0"
+"keywords[]".entity = "filter-keyword"
+"keywords[]".mastodon = "4.0.0"
+"statuses[]".entity = "filter-status"
+"statuses[]".mastodon = "4.0.0"
+
+[entity.filter-context]
+name = "Filter Context"
+[entity.filter-context.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/#context"
+[entity.filter-context.values]
+home.mastodon = "4.0.0"
+notifications.mastodon = "4.0.0"
+public.mastodon = "4.0.0"
+thread.mastodon = "4.0.0"
+account.mastodon = "4.0.0"
+
+[entity.filter-action]
+name = "Filter Action"
+[entity.filter-action.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/#filter_action"
+[entity.filter-action.values]
+warn.mastodon = "4.0.0"
+hide.mastodon = "4.0.0"
+
+[entity.filter-keyword]
+name = "Filter Keyword"
+[entity.filter-keyword.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/FilterKeyword/"
+[entity.filter-keyword.attributes]
+id.mastodon = "4.0.0"
+keyword.mastodon = "4.0.0"
+whole_word.mastodon = "4.0.0"
+
+[entity.filter-status]
+name = "Filter Status"
+[entity.filter-status.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/FilterStatus/"
+[entity.filter-status.attributes]
+id.mastodon = "4.0.0"
+status_id.mastodon = "4.0.0"
