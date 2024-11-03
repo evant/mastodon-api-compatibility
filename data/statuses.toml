@@ -74,15 +74,6 @@ username.mastodon = "0.6.0"
 url.mastodon = "0.6.0"
 acct.mastodon = "0.6.0"
 
-[entity.tag]
-name = "Tag"
-[entity.tag.software]
-mastodon.version = "0.9.0"
-mastodon.docs = "https://docs.joinmastodon.org/entities/Status/#Tag"
-[entity.tag.attributes]
-name.mastodon = "0.9.0"
-url.mastodon = "0.9.0"
-
 [entity.poll]
 name = "Poll"
 [entity.poll.software]

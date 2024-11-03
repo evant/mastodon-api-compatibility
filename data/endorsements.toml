@@ -1,0 +1,8 @@
+[[api]]
+request = "GET /api/v1/endorsements"
+response = "account[]"
+[api.software]
+mastodon.version = "2.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/endorsements/#get"
+[api.params]
+limit.mastodon = "2.5.0"

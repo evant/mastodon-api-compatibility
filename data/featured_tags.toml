@@ -1,0 +1,41 @@
+[entity.featured-tag]
+name = "Featured Tag"
+[entity.featured-tag.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/FeaturedTag/"
+[entity.featured-tag.attributes]
+id.mastodon = "3.0.0"
+name.mastodon = "3.0.0"
+url.mastodon = "3.3.0"
+status_count.mastodon = "3.0.0"
+last_status_at.mastodon = "3.0.0"
+
+[[api]]
+request = "GET /api/v1/featured_tags"
+response = "featured-tag[]"
+[api.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/featured_tags/#get"
+
+[[api]]
+request = "POST /api/v1/featured_tags"
+response = "featured-tag"
+[api.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/featured_tags/#feature"
+[api.params]
+name.mastodon = "3.0.0"
+
+[[api]]
+request = "DELETE /api/v1/featured_tags/:id"
+[api.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/featured_tags/#unfeature"
+[api.params]
+id.mastodon = "3.0.0"
+
+[[api]]
+request = "GET /api/v1/featured_tags/suggestions"
+response = "tag[]"
+[api.software]
+mastodon.version = "3.0.0"

@@ -1,0 +1,44 @@
+[entity.report]
+name = "Report"
+[entity.report.software]
+mastodon.version = "1.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Report/"
+[entity.report.attributes]
+id.mastodon = "1.1.0"
+action_taken.mastodon = "1.1.0"
+action_taken_at.mastodon = "4.0.0"
+category.entity = "report-category"
+category.mastodon = "4.0.0"
+comment.mastodon = "4.0.0"
+forwarded.mastodon = "4.0.0"
+created_at.mastodon = "4.0.0"
+status_ids.mastodon = "4.0.0"
+rule_ids.mastodon = "4.0.0"
+target_account.entity = "account"
+target_account.mastodon = "4.0.0"
+
+[entity.report-category]
+name = "Report Category"
+[entity.report-category.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Report/#category"
+[entity.report-category.values]
+spam.mastodon = "4.0.0"
+violation.mastodon = "4.0.0"
+other.mastodon = "4.0.0"
+legal.mastodon = "4.2.0"
+
+[[api]]
+request = "POST /api/v1/reports"
+response = "report"
+[api.software]
+mastodon.version = "1.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/reports/#post"
+[api.params]
+account_id.mastodon = "1.1.0"
+"status_ids[]".mastodon = "1.1.0"
+comment.mastodon = "1.1.0"
+forward.mastodon = "2.3.0"
+category.entity = "report-category"
+category.mastodon = { version = "3.5.0", note = "optional if rule_ids is provided in 4.0.0" }
+"rule_ids[]".mastodon = "3.5.0"

@@ -1,0 +1,25 @@
+[[api]]
+request = "GET /api/v1/domain_blocks"
+[api.software]
+mastodon.version = "1.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/domain_blocks/#get"
+[api.params]
+limit.mastodon = "1.4.0"
+[api.response]
+"[]".mastodon = "1.4.0"
+
+[[api]]
+request = "POST /api/v1/domain_blocks"
+[api.software]
+mastodon.version = "1.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/domain_blocks/#block"
+[api.params]
+domain.mastodon = "1.4.0"
+
+[[api]]
+request = "DELETE /api/v1/domain_blocks"
+[api.software]
+mastodon.version = "1.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/domain_blocks/#unblock"
+[api.params]
+domain.mastodon = "1.4.0"

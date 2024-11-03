@@ -1,0 +1,34 @@
+[entity.tag]
+name = "Tag"
+[entity.tag.software]
+mastodon.version = "0.9.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Status/#Tag"
+[entity.tag.attributes]
+name.mastodon = "0.9.0"
+url.mastodon = "0.9.0"
+
+[[api]]
+request = "GET /api/v1/tags/:id"
+response = "tag"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/tags/#get"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/tags/:id/follow"
+response = "tag"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/tags/#follow"
+mastodon.note = "Idempotent in 4.1.0"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/tags/:id/unfollow"
+response = "tag"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/tags/#unfollow"

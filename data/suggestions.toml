@@ -1,0 +1,61 @@
+[entity.suggestion]
+name = "Suggestion"
+[entity.suggestion.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Suggestion/"
+[entity.suggestion.attributes]
+source.entity = "v2-suggestion-source"
+source.mastodon = { version = "3.4.0", deprecated = "4.3.0" }
+"sources[]".entity = "v2_1-suggestion-source"
+"sources[]".mastodon = "4.3.0"
+account.entity = "account"
+account.mastodon = "3.4.0"
+
+[entity.v2-suggestion-source]
+name = "V2 Suggestion Source"
+[entity.v2-suggestion-source.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Suggestion/#attributes"
+[entity.v2-suggestion-source.values]
+staff.mastodon = "3.4.0"
+past_interactions.mastodon = "3.4.0"
+global.mastodon = "3.4.0"
+
+[entity."v2_1-suggestion-source"]
+name = "V2.1 Suggestion Source"
+[entity."v2_1-suggestion-source".software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Suggestion/#sources"
+[entity."v2_1-suggestion-source".values]
+featured.mastodon = "4.3.0"
+most_followed.mastodon = "4.3.0"
+most_interactions.mastodon = "4.3.0"
+similar_to_recently_followed.mastodon = "4.3.0"
+friends_of_friends.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v2/suggestions"
+response = "suggestion[]"
+[api.software]
+mastodon.version = "3.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/suggestions/#v2"
+[api.params]
+limit.mastodon = "3.4.0"
+
+[[api]]
+request = "DELETE /api/v1/suggestions/:account_id"
+[api.software]
+mastodon.version = "2.4.3"
+mastodon.docs = "https://docs.joinmastodon.org/methods/suggestions/#remove"
+[api.params]
+account_id.mastodon = "2.4.3"
+
+[[api]]
+request = "GET /api/v1/suggestions"
+response = "account[]"
+[api.software]
+mastodon.version = "2.4.3"
+mastodon.docs = "https://docs.joinmastodon.org/methods/suggestions/#v1"
+mastodon.deprecated = "3.4.0"
+[api.params]
+limit.mastodon = "2.4.3"
