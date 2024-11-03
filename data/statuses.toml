@@ -22,7 +22,7 @@ application.mastodon = "0.9.9"
 "mentions[]".mastodon = "0.6.0"
 "tags[]".entity = "tag"
 "tags[]".mastodon = "0.6.0"
-"emojis[]".entity = "emoji"
+"emojis[]".entity = "custom-emoji"
 "emojis[]".mastodon = "2.0.0"
 reblogs_count.mastodon = "0.1.0"
 favourites_count.mastodon = "0.1.0"
@@ -59,6 +59,9 @@ direct.mastodon = "0.9.9"
 
 [entity.media-attachment]
 name = "Media Attachment"
+[entity.media-attachment.software]
+mastodon.version = "TODO"
+mastodon.docs = "TODO"
 
 [entity.mention]
 name = "Mention"

@@ -5,7 +5,7 @@ mastodon.version = "0.9.9"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Notification/"
 [entity.notification.attributes]
 id.mastodon = "0.9.9"
-type = "notification-type"
+type.entity = "notification-type"
 group_key.mastodon = "4.3.0"
 created_at.mastodon = "0.9.9"
 account.entity = "account"
@@ -84,7 +84,7 @@ response = "notification"
 [api.software]
 mastodon.version = "0.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get-one"
-[api.notifications.params]
+[api.params]
 id.mastodon = "0.0.0"
 
 [[api]]

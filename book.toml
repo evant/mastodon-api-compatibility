@@ -1,0 +1,18 @@
+[book]
+title = "Mastodon Api Compatibility"
+src = "content"
+
+[build]
+build-dir = "public"
+
+[output.html]
+additional-css = ["css/mdbook-admonish.css", "css/custom.css"]
+git-repository-url = "https://github.com/evant/mastodon-api-compatibility"
+
+#[output.markdown]
+
+[preprocessor]
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`

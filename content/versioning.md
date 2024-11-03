@@ -1,17 +1,12 @@
-+++
-date = '2024-10-26T14:22:39-07:00'
-title = 'Versioning'
-+++
-
 The following outlines the software `name` and `version` format for the
 [nodeinfo](https://github.com/jhass/nodeinfo) endpoint for various fedi
 software.
 
-{{% notice warning "" "triangle-exclamation" %}}
+```admonish warning
 Instances may customize the version so this list is not exhaustive. You should
 never match against a version exactly. In most cases the version will start
 with the api version it is compatible with.
-{{% /notice %}}
+```
 
 ## Mastodon
 

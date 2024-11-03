@@ -1,12 +1,9 @@
-+++
-title = ""
-type = "home"
-+++
+# Introduction
 
-{{% notice warning "Work in progress!" "triangle-exclamation" %}}
+```admonish warning "Work in progress!"
 I have just started this project, there is not much actual data yet. Stay
 tuned!
-{{% /notice %}}
+```
 
 Various fediverse software has adopted the 'Mastodon Api' as the
 unofficial-official standard for clients to consume. However, as this api is
