@@ -1,8 +1,7 @@
-[[software]]
-key = "mastodon"
+[mastodon]
 name = "Mastodon"
 docs = "https://docs.joinmastodon.org/"
-[[software]]
-key = "gotosocial"
+
+[gotosocial]
 name = "GoToSocial"
 docs = "https://docs.gotosocial.org/en/latest/api/swagger"

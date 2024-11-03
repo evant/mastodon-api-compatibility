@@ -1,0 +1,60 @@
+i.icon {
+    background-size: cover;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+    vertical-align: -0.3rem;
+    print-color-adjust: exact;
+}
+
+i.icon.iwarning {
+    background-color: #ff9100;
+    mask-image: var(--md-admonition-icon--admonish-warning);
+    -webkit-mask-image: var(--md-admonition-icon--admonish-warning);
+}
+
+i.icon.iinfo {
+    background-color: #2196f3;
+    mask-image: var(--md-admonition-icon--admonish-info);
+    -webkit-mask-image: var(--md-admonition-icon--admonish-info);
+}
+
+i.icon.ierror {
+    background-color: #f44336;
+    mask-image: var(--md-admonition-icon--admonish-failure);
+    -webkit-mask-image: var(--md-admonition-icon--admonish-failure);
+}
+
+table {
+    margin-top: 1em;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+}
+
+th {
+    text-align: start;
+}
+
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -2em;
+    left: 100%;
+    padding: 0.5em;
+    background: var(--theme-popup-bg);
+    border: 1px solid var(--theme-popup-border);
+    font-size: 0.8em;
+    white-space: nowrap;
+    z-index: 1;
+}
