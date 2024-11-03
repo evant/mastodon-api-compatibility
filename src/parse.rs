@@ -29,6 +29,7 @@ pub enum Software {
 #[serde(deny_unknown_fields)]
 pub struct Entity {
     pub name: String,
+    #[serde(default)]
     pub software: HashMap<String, Software>,
     #[serde(default)]
     pub attributes: HashMap<String, Attribute>,
@@ -48,6 +49,7 @@ pub struct Attribute {
 #[serde(deny_unknown_fields)]
 pub struct Api {
     pub request: String,
+    #[serde(default)]
     pub software: HashMap<String, Software>,
     #[serde(default)]
     pub params: HashMap<String, Attribute>,
