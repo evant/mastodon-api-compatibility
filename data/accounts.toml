@@ -177,18 +177,6 @@ fields_attributes.mastodon = "1.1.1"
 "source[sensitive]".mastodon = "2.4.0"
 "source[language]".mastodon = "2.4.2"
 
-[entity.featured-tag]
-name = "Featured Tag"
-[entity.featured-tag.software]
-mastodon.version = "3.0.0"
-mastodon.docs = "https://docs.joinmastodon.org/entities/FeaturedTag/"
-[entity.featured-tag.attributes]
-id.mastodon = "3.0.0"
-name.mastodon = "3.0.0"
-url.mastodon = "3.3.0"
-status_count.mastodon = "3.0.0"
-last_status_at.mastodon = "3.0.0"
-
 [entity.list]
 name = "List"
 [entity.list.software]

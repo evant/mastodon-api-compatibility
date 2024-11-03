@@ -1,0 +1,43 @@
+[entity.muted-account]
+name = "Muted Account"
+[entity.muted-account.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Account/#MutedAccount"
+[entity.muted-account.attributes]
+id.mastodon = "0.1.0"
+username.mastodon = "0.1.0"
+acct.mastodon = "0.1.0"
+url.mastodon = "0.1.0"
+display_name.mastodon = "0.1.0"
+note.mastodon = "0.1.0"
+avatar.mastodon = "0.1.0"
+avatar_static.mastodon = "1.1.2"
+header.mastodon = "0.1.0"
+header_static.mastodon = "1.1.2"
+locked.mastodon = "0.1.0"
+"fields[]".entity = "field"
+"fields[]".mastodon = "2.4.0"
+"emojis[]".entity = "custom-emoji"
+"emojis[]".mastodon = "2.4.0"
+bot.mastodon = "2.4.0"
+group.mastodon = "3.1.0"
+discoverable.mastodon = "3.1.0"
+noindex.mastodon = "4.0.0"
+moved.mastodon = "2.1.0"
+suspended.mastodon = "3.3.0"
+limited.mastodon = "3.5.3"
+created_at.mastodon = { version = "0.1.0", note = "resolves to midnight instead of an exact time in 3.4.0" }
+last_status_at.mastodon = { version = "3.0.0", note = "returns date only in 3.1.0" }
+statuses_count.mastodon = "0.1.0"
+followers_count.mastodon = "0.1.0"
+following_count.mastodon = "0.1.0"
+mute_expires_at.mastodon = "3.3.0"
+
+[[api]]
+request = "GET /api/v1/mutes"
+response = "muted-account[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/mutes/#get"
+[api.params]
+limit.mastodon = "0.0.0"

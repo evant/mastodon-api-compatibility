@@ -1,0 +1,28 @@
+[[api]]
+request = "GET /api/v1/follow_requests"
+response = "account[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/follow_requests/#get"
+[api.params]
+limit.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/follow_requests/:account_id/authorize"
+response = "relationship"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/follow_requests/#accept"
+mastodon.note = "returns a Relationship in 3.0.0"
+[api.params]
+account_id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/follow_requests/:account_id/reject"
+response = "relationship"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/follow_requests/#reject"
+mastodon.note = "returns a Relationship in 3.0.0"
+[api.params]
+account_id.mastodon = "0.0.0"

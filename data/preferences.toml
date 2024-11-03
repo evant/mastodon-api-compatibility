@@ -1,0 +1,11 @@
+[[api]]
+request = "GET /api/v1/preferences"
+[api.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/preferences/#get"
+[api.response]
+"posting:default:visibility".mastodon = "2.8.0"
+"posting:default:sensitive".mastodon = "2.8.0"
+"posting:default:language".mastodon = "2.8.0"
+"reading:expand:media".mastodon = "2.8.0"
+"reading:expand:spoilers".mastodon = "2.8.0"

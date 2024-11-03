@@ -1,0 +1,9 @@
+[[api]]
+request = "GET /api/v1/followed_tags"
+response = "tag[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/followed_tags/#get"
+mastodon.note = "Added pagination headers in 4.1.0"
+[api.params]
+limit.mastodon = "4.0.0"

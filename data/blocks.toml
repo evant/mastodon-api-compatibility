@@ -1,0 +1,8 @@
+[[api]]
+request = "GET /api/v1/blocks"
+response = "account[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/blocks/#get"
+[api.params]
+limit.mastodon = "0.0.0"

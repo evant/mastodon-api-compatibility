@@ -1,0 +1,11 @@
+[[api]]
+request = "GET /api/v1/bookmarks"
+response = "status[]"
+[api.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/bookmarks/#get"
+[api.params]
+max_id.mastodon = { version = "3.1.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "3.1.0"
+min_id.mastodon = { version = "3.1.0", note = "can be used with max_i in 3.3.0" }
+limit.mastodon = "3.1.0"

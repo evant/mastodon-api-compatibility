@@ -1,0 +1,263 @@
+[entity.filter]
+name = "Filter"
+[entity.filter.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/"
+[entity.filter.attributes]
+id.mastodon = "4.0.0"
+title.mastodon = "4.0.0"
+context.entity = "filter-context"
+context.mastodon = "4.0.0"
+expires_at.mastodon = "4.0.0"
+filter_action.entity = "filter-action"
+filter_action.mastodon = "4.0.0"
+"keywords[]".entity = "filter-keyword"
+"keywords[]".mastodon = "4.0.0"
+"statuses[]".entity = "filter-status"
+"statuses[]".mastodon = "4.0.0"
+
+[entity.filter-context]
+name = "Filter Context"
+[entity.filter-context.software]
+mastodon.version = "2.4.3"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/#context"
+[entity.filter-context.values]
+home.mastodon = "2.4.3"
+notifications.mastodon = "2.4.3"
+public.mastodon = "2.4.3"
+thread.mastodon = "2.4.3"
+account.mastodon = "3.1.0"
+
+[entity.filter-action]
+name = "Filter Action"
+[entity.filter-action.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/#filter_action"
+[entity.filter-action.values]
+warn.mastodon = "4.0.0"
+hide.mastodon = "4.0.0"
+
+[entity.filter-keyword]
+name = "Filter Keyword"
+[entity.filter-keyword.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/FilterKeyword/"
+[entity.filter-keyword.attributes]
+id.mastodon = "4.0.0"
+keyword.mastodon = "4.0.0"
+whole_word.mastodon = "4.0.0"
+
+[entity.filter-status]
+name = "Filter Status"
+[entity.filter-status.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/FilterStatus/"
+[entity.filter-status.attributes]
+id.mastodon = "4.0.0"
+status_id.mastodon = "4.0.0"
+
+[entity.v1-filter]
+name = "V1 Filter"
+[entity.v1-filter.software]
+mastodon.version = "2.4.3"
+mastodon.deprecated = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/V1_Filter/"
+[entity.v1-filter.attributes]
+id.mastodon = "2.4.3"
+context.mastodon = "2.4.3"
+expires_at.mastodon = "2.4.3"
+irreversible.mastodon = "2.4.3"
+whole_word.mastodon = "2.4.3"
+
+[[api]]
+request = "GET /api/v2/filters"
+response = "filter[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#get"
+
+[[api]]
+request = "GET /api/v2/filters/:id"
+response = "filter"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#get-one"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v2/filters"
+response = "filter"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#create"
+[api.params]
+title.mastodon = "4.0.0"
+"context[]".entity = "filter-context"
+"context[]".mastodon = "4.0.0"
+filter_action.entity = "filter-action"
+filter_action.mastodon = "4.0.0"
+expires_in.mastodon = "4.0.0"
+"keywords_attributes[][keyword]".mastodon = "4.0.0"
+"keywords_attributes[][whole_word]".mastodon = "4.0.0"
+
+[[api]]
+request = "PUT /api/v2/filters/:id"
+response = "filter"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#update"
+[api.params]
+id.mastodon = "4.0.0"
+title.mastodon = "4.0.0"
+"context[]".entity = "filter-context"
+"context[]".mastodon = "4.0.0"
+filter_action.entity = "filter-action"
+filter_action.mastodon = "4.0.0"
+expires_in.mastodon = "4.0.0"
+"keywords_attributes[][keyword]".mastodon = "4.0.0"
+"keywords_attributes[][whole_word]".mastodon = "4.0.0"
+"keywords_attributes[][id]".mastodon = "4.0.0"
+"keywords_attributes[][_destroy]".mastodon = "4.0.0"
+
+[[api]]
+request = "DELETE /api/v2/filters/:id"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#delete"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v2/filters/:filter_id/keywords"
+response = "filter-keyword[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#keywords-get"
+[api.params]
+filter_id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v2/filters/:filter_id/keywords"
+response = "filter-keyword"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#keywords-create"
+[api.params]
+filter_id.mastodon = "4.0.0"
+keyword.mastodon = "4.0.0"
+whole_word.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v2/filters/keywords/:id"
+response = "filter-keyword"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#keywords-get-one"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "PUT /api/v2/filters/keywords/:id"
+response = "filter-keyword"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#keywords-update"
+[api.params]
+id.mastodon = "4.0.0"
+keyword.mastodon = "4.0.0"
+whole_word.mastodon = "4.0.0"
+
+[[api]]
+request = "DELETE /api/v2/filters/keywords/:id"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#keywords-delete"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v2/filters/:filter_id/statuses"
+response = "filter-status[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#statuses-get"
+[api.params]
+filter_id.mastodon = "4.0.0"
+status_id.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v2/filters/statuses/:id"
+response = "filter-status"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#statuses-get-one"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "DELETE /api/v2/filters/statuses/:id"
+response = "filter-status"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#statuses-remove"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/filters"
+response = "v1-filter[]"
+[api.software]
+mastodon.version = "2.4.3"
+mastodon.deprecated = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#get-v1"
+
+[[api]]
+request = "GET /api/v1/filters/:id"
+response = "v1-filter"
+[api.software]
+mastodon.version = "2.4.3"
+mastodon.deprecated = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#get-one-v1"
+[api.params]
+id.mastodon = "2.4.3"
+
+[[api]]
+request = "POST /api/v1/filters"
+response = "v1-filter"
+[api.software]
+mastodon.version = "2.4.3"
+mastodon.deprecated = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#create-v1"
+[api.params]
+phrase.mastodon = "2.4.3"
+"context[]".entity = "filter-context"
+"context[]".mastodon = "2.4.3"
+irreversible.mastodon = "2.4.3"
+whole_word.mastodon = "2.4.3"
+expires_in.mastodon = "2.4.3"
+
+[[api]]
+request = "PUT /api/v1/filters/:id"
+response = "v1-filter"
+[api.software]
+mastodon.version = "2.4.3"
+mastodon.deprecated = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#create-v1"
+[api.params]
+id.mastodon = "2.4.3"
+phrase.mastodon = "2.4.3"
+"context[]".entity = "filter-context"
+"context[]".mastodon = "2.4.3"
+irreversible.mastodon = "2.4.3"
+whole_word.mastodon = "2.4.3"
+expires_in.mastodon = "2.4.3"
+
+[[api]]
+request = "DELETE /api/v1/filters/:id"
+[api.software]
+mastodon.version = "2.4.3"
+mastodon.deprecated = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/filters/#create-v1"
+[api.params]
+id.mastodon = "2.4.3"
