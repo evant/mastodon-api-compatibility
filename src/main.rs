@@ -193,7 +193,7 @@ fn main() {
 fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut md = MDBook::load(".")?;
 
-    let software = parse_software_file("data/software.toml")?
+    let software: Vec<_> = parse_software_file("data/software.toml")?
         .into_iter()
         .map(|(key, software)| SoftwareDef::from(key, software))
         .collect();
@@ -217,6 +217,22 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .push_item(BookItem::PartTitle("Api Methods".to_string()));
 
     for (name, apis) in apis.into_iter() {
+        for api in &apis {
+            check_software_exists(&software, None, &api.request, &api.software)?;
+
+            for (key, value) in &api.params {
+                check_software_exists(&software, Some(&api.request), key, &value.software)?;
+            }
+
+            for response in &api.responses {
+                if let Response::Value { value, .. } = response {
+                    for (key, value) in value {
+                        check_software_exists(&software, Some(&api.request), key, &value.software)?;
+                    }
+                }
+            }
+        }
+
         let apis_page = ApisPage {
             software: &software,
             entities: &entities,
@@ -241,6 +257,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .push_item(BookItem::PartTitle("Api Entities".to_string()));
 
     for (name, entity) in entities.iter() {
+
+        check_software_exists(&software, None, name, &entity.software)?;
+
+        for (key, value) in &entity.attributes {
+            check_software_exists(&software, Some(name), key, &value.software)?;
+        }
+
         let entity_page = EntityPage {
             software: &software,
             entities: &entities,
@@ -260,6 +283,19 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
 
     md.build()?;
 
+    Ok(())
+}
+
+fn check_software_exists(software: &[SoftwareDef], context: Option<&str>, key: &str, attribute_software: &HashMap<String, Software>) -> Result<(), Box<dyn std::error::Error>> {
+    for k in attribute_software.keys() {
+        if !software.iter().any(|s| &s.key == k) {
+            if let Some(context) = context {
+                return Err(format!("Software '{}' not found for '{}.{}' in software.toml", k, context, key).into());
+            } else {
+                return Err(format!("Software '{}' not found for '{}' in software.toml", k, key).into());
+            }
+        }
+    }
     Ok(())
 }
 
