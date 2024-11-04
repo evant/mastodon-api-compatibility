@@ -1,0 +1,97 @@
+[entity.list]
+name = "List"
+[entity.list.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/List/"
+[entity.list.attributes]
+id.mastodon = "2.1.0"
+title.mastodon = "2.1.0"
+replies_policy.entity = "replies-policy"
+replies_policy.mastodon = "3.3.0"
+
+[entity.replies-policy]
+name = "Replies Policy"
+[entity.replies-policy.software]
+mastodon.version = "3.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/List/#replies_policy"
+[entity.replies-policy.values]
+followed.mastodon = "3.3.0"
+list.mastodon = "3.3.0"
+none.mastodon = "3.3.0"
+
+[[api]]
+request = "GET /api/v1/lists"
+response = "list[]"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/lists/#get"
+
+[[api]]
+request = "GET /api/v1/lists/:id"
+response = "list"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/lists/#get-one"
+[api.params]
+id.mastodon = "2.1.0"
+
+[[api]]
+request = "POST /api/v1/lists"
+response = "list"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/lists/#create"
+[api.params]
+title.mastodon = "2.1.0"
+replies_policy.entity = "replies-policy"
+replies_policy.mastodon = "3.3.0"
+exclusive.mastodon = "4.2.0"
+
+[[api]]
+request = "PUT /api/v1/lists/:id"
+response = "list"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/lists/#update"
+[api.params]
+id.mastodon = "2.1.0"
+title.mastodon = "2.1.0"
+replies_policy.entity = "replies-policy"
+replies_policy.mastodon = "3.3.0"
+exclusive.mastodon = "4.2.0"
+
+[[api]]
+request = "DELETE /api/v1/lists/:id"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/lists/#delete"
+[api.params]
+id.mastodon = "2.1.0"
+
+[[api]]
+request = "GET /api/v1/lists/:id/accounts"
+response = "account[]"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/lists/#accounts"
+[api.params]
+id.mastodon = "2.1.0"
+limit.mastodon = "2.1.0"
+
+[[api]]
+request = "POST /api/v1/lists/:id/accounts"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/lists/#accounts-add"
+[api.params]
+id.mastodon = "2.1.0"
+"account_ids[]".mastodon = "2.1.0"
+
+[[api]]
+request = "DELETE /api/v1/lists/:id/accounts"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/lists/#accounts-remove"
+[api.params]
+id.mastodon = "2.1.0"
+"account_ids[]".mastodon = "2.1.0"

@@ -1,0 +1,88 @@
+[[api]]
+request = "GET /api/v1/timelines/public"
+response = "status[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/timelines/#public"
+mastodon.note = "Auth required is public preview disabled in 3.0.0"
+[api.params]
+local.mastodon = "0.0.0"
+remote.mastodon = "3.1.4"
+only_media.mastodon = "2.3.0"
+max_id.mastodon = { version = "0.0.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "0.0.0"
+min_id.mastodon = { version = "2.6.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/timelines/tag/:hashtag"
+response = "status[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/timelines/#tag"
+mastodon.note = "Auth required is public preview disabled in 3.0.0"
+[api.params]
+hashtag.mastodon = "0.0.0"
+"any[]".mastodon = "2.7.0"
+"all[]".mastodon = "2.7.0"
+"none[]".mastodon = "2.7.0"
+local.mastodon = "0.0.0"
+remote.mastodon = "3.3.0"
+only_media.mastodon = "2.3.0"
+max_id.mastodon = { version = "0.0.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "0.0.0"
+min_id.mastodon = { version = "2.6.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/timelines/home"
+response = "status[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/timelines/#home"
+mastodon.note = "Statuses from non-followed users may appear in timeline in 4.0.0"
+[api.params]
+max_id.mastodon = { version = "0.0.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "0.0.0"
+min_id.mastodon = { version = "2.6.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/timelines/link"
+response = "status[]"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/timelines/#link"
+[api.params]
+url.mastodon = "4.3.0"
+max_id.mastodon = "4.3.0"
+since_id.mastodon = "4.3.0"
+min_id.mastodon = "4.3.0"
+limit.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v1/timelines/list/:list_id"
+response = "status[]"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/timelines/#list"
+[api.params]
+list_id.mastodon = "2.1.0"
+max_id.mastodon = { version = "2.1.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "2.1.0"
+min_id.mastodon = { version = "2.6.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = "2.1.0"
+
+[[api]]
+request = "GET /api/v1/timelines/direct"
+response = "status[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/timelines/#direct"
+mastodon.deprecated = "2.6.0"
+mastodon.removed = "3.0.0"
+[api.params]
+max_id.mastodon = "0.0.0"
+since_id.mastodon = "0.0.0"
+min_id.mastodon = "2.6.0"
+limit.mastodon = "0.0.0"
