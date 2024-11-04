@@ -1,0 +1,206 @@
+[entity.grouped-notifications-results]
+name = "Grouped Notifications Results"
+[entity.grouped-notifications-results.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#GroupedNotificationsResults"
+[entity.grouped-notifications-results.attributes]
+"accounts[]".entity = "account"
+"accounts[]".mastodon = "4.3.0"
+"partial_accounts[]".entity = "partial-account-with-avatar"
+"partial_accounts[]".mastodon = "4.3.0"
+"statuses[]".entity = "status"
+"statuses[]".mastodon = "4.3.0"
+"notification_groups[]".entity = "notification-group"
+"notification_groups[]".mastodon = "4.3.0"
+
+[entity.partial-account-with-avatar]
+name = "Partial Account with Avatar"
+[entity.partial-account-with-avatar.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#PartialAccountWithAvatar"
+[entity.partial-account-with-avatar.attributes]
+id.mastodon = "4.3.0"
+acct.mastodon = "4.3.0"
+url.mastodon = "4.3.0"
+avatar.mastodon = "4.3.0"
+avatar_static.mastodon = "4.3.0"
+locked.mastodon = "4.3.0"
+bot.mastodon = "4.3.0"
+
+[entity.notification-group]
+name = "Notification Group"
+[entity.notification-group.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#NotificationGroup"
+[entity.notification-group.attributes]
+group_key.mastodon = "4.3.0"
+notifications_count.mastodon = "4.3.0"
+type.entity = "notification-type"
+type.mastodon = "4.3.0"
+most_recent_notification_id.mastodon = "4.3.0"
+page_min_id.mastodon = "4.3.0"
+page_max_id.mastodon = "4.3.0"
+latest_page_notification_at.mastodon = "4.3.0"
+"sample_account_ids[]".mastodon = "4.3.0"
+status_id.mastodon = "4.3.0"
+report.entity = "report"
+report.mastodon = "4.3.0"
+event.entity = "relationship-severance-event"
+event.mastodon = "4.3.0"
+moderation_warning.entity = "account-warning"
+moderation_warning.mastodon = "4.3.0"
+
+[entity.relationship-severance-event]
+name = "Relationship Severance Event"
+[entity.relationship-severance-event.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/RelationshipSeveranceEvent/"
+[entity.relationship-severance-event.attributes]
+id.mastodon = "4.3.0"
+type.entity = "relationship-severance-type"
+type.mastodon = "4.3.0"
+purged.mastodon = "4.3.0"
+target_name.mastodon = "4.3.0"
+relationships_count.mastodon = "4.3.0"
+created_at.mastodon = "4.3.0"
+
+[entity.relationship-severance-type]
+name = "Relationship Severance Type"
+[entity.relationship-severance-type.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/RelationshipSeveranceEvent/#type"
+[entity.relationship-severance-type.values]
+domain_block.mastodon = "4.3.0"
+user_domain_block.mastodon = "4.3.0"
+account_suspension.mastodon = "4.3.0"
+
+[entity.account-warning]
+name = "Account Warning"
+[entity.account-warning.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/AccountWarning/"
+[entity.account-warning.attributes]
+id.mastodon = "4.3.0"
+text.mastodon = "4.3.0"
+"status_ids[]".mastodon = "4.3.0"
+target_account.entity = "account"
+target_account.mastodon = "4.3.0"
+appeal.entity = "appeal"
+appeal.mastodon = "4.3.0"
+created_at.mastodon = "4.3.0"
+
+[entity.account-warning-action]
+name = "Account Warning Action"
+[entity.account-warning-action.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/AccountWarning/#action"
+[entity.account-warning-action.values]
+none.mastodon = "4.3.0"
+disable.mastodon = "4.3.0"
+mark_statuses_as_sensitive.mastodon = "4.3.0"
+delete_statuses.mastodon = "4.3.0"
+sensitive.mastodon = "4.3.0"
+silence.mastodon = "4.3.0"
+suspend.mastodon = "4.3.0"
+
+[entity.appeal]
+name = "Appeal"
+[entity.appeal.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Appeal/"
+[entity.appeal.attributes]
+text.mastodon = "4.3.0"
+state.entity = "appeal-state"
+state.mastodon = "4.3.0"
+
+[entity.appeal-state]
+name = "Appeal State"
+[entity.appeal-state.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Appeal/#state"
+[entity.appeal-state.values]
+approved.mastodon = "4.3.0"
+rejected.mastodon = "4.3.0"
+pending.mastodon = "4.3.0"
+
+[entity.notification-group-type]
+name = "Notification Group Type"
+[entity.notification-group-type.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#query-parameters"
+[entity.notification-group-type.values]
+favourite.mastodon = "4.3.0"
+follow.mastodon = "4.3.0"
+reblog.mastodon = "4.3.0"
+
+[entity.notification-group-expand]
+name = "Notification Group Expand"
+[entity.notification-group-expand.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#query-parameters"
+[entity.notification-group-expand.values]
+full.mastodon = "4.3.0"
+partial_avatars.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v2/notifications"
+response = "grouped-notifications-results"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#get-grouped"
+[api.params]
+max_id.mastodon = "4.3.0"
+since_id.mastodon = "4.3.0"
+min_id.mastodon = "4.3.0"
+limit.mastodon = "4.3.0"
+"types[]".entity = "notification-type"
+"types[]".mastodon = "4.3.0"
+"exclude_types[]".entity = "notification-type"
+"exclude_types[]".mastodon = "4.3.0"
+account_id.mastodon = "4.3.0"
+"grouped_types[]".entity = "notification-group-type"
+"grouped_types[]".mastodon = "4.3.0"
+include_filtered.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v2/notifications/:group_key"
+response = "grouped-notifications-results"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#get-notification-group"
+[api.params]
+group_key.mastodon = "4.3.0"
+
+[[api]]
+request = "POST /api/v2/notifications/:group_key/dismiss"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#dismiss-group"
+[api.params]
+group_key.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v2/notifications/:group_key/accounts"
+response = "account[]"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#get-group-accounts"
+[api.params]
+group_key.mastodon = "4.3.0"
+
+[[api]]
+request = "GET /api/v2/notifications/unread_count"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#unread-group-count"
+[api.params]
+limit.mastodon = "4.3.0"
+"types[]".entity = "notification-type"
+"types[]".mastodon = "4.3.0"
+"exclude_types[]".entity = "notification-type"
+"exclude_types[]".mastodon = "4.3.0"
+account_id.mastodon = "4.3.0"
+"grouped_types[]".entity = "notification-group-type"
+"grouped_types[]".mastodon = "4.3.0"
+[api.response]
+count.mastodon = "4.3.0"
