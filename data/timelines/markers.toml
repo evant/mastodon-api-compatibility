@@ -1,0 +1,42 @@
+[entity.marker]
+name = "Marker"
+[entity.marker.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Marker/"
+[entity.marker.attributes]
+last_read_id.mastodon = "3.0.0"
+version.mastodon = "3.0.0"
+updated_at.mastodon = "3.0.0"
+
+[entity.timeline-key]
+name = "Timeline Key"
+[entity.timeline-key.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/markers/#query-parameters"
+[entity.timeline-key.values]
+home.mastodon = "3.0.0"
+notifications.mastodon = "3.0.0"
+
+[[api]]
+request = "GET /api/v1/markers"
+[api.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/markers/#get"
+[api.params]
+"timeline[]".entity = "timeline-key"
+"timeline[]".mastodon = "3.0.0"
+[api.response]
+home.entity = "marker"
+home.mastodon = "3.0.0"
+notifications.entity = "marker"
+notifications.mastodon = "3.0.0"
+
+[[api]]
+request = "POST /api/v1/markers"
+response = "marker"
+[api.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/markers/#create"
+[api.params]
+"home[last_read_id]".mastodon = "3.0.0"
+"notifications[last_read_id]".mastodon = "3.0.0"
