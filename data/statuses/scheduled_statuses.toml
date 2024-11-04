@@ -1,0 +1,66 @@
+[entity.scheduled-status]
+name = "Scheduled Status"
+[entity.scheduled-status.software]
+mastodon.version = "2.7.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/ScheduledStatus/"
+[entity.scheduled-status.attributes]
+id.mastodon = "2.7.0"
+scheduled_at.mastodon = "2.7.0"
+"params[test]".mastodon = "2.7.0"
+"params[poll]".mastodon = "2.8.0"
+"params[poll][options[]]".mastodon = "2.8.0"
+"params[poll][expires_in]".mastodon = "2.8.0"
+"params[poll][multiple]".mastodon = "2.8.0"
+"params[poll][hide_totals]".mastodon = "2.8.0"
+"params[media_ids]".mastodon = "2.7.0"
+"params[sensitive]".mastodon = "2.7.0"
+"params[spoiler_text]".mastodon = "2.7.0"
+"params[visibility]".entity = "visibility"
+"params[visibility]".mastodon = "2.7.0"
+"params[in_reply_to_id]".mastodon = "2.7.0"
+"params[language]".mastodon = "2.7.0"
+"params[application_id]".mastodon = "2.7.0"
+"params[scheduled_at]".mastodon = "2.7.0"
+"params[idempotency]".mastodon = "2.7.0"
+"params[with_rate_limit]".mastodon = "2.7.0"
+"media_attachments[]".entity = "media-attachment"
+"media_attachments[]".mastodon = "2.7.0"
+
+[[api]]
+request = "GET /api/v1/scheduled_statuses"
+response = "scheduled-status[]"
+[api.software]
+mastodon.version = "2.7.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/scheduled_statuses/#get"
+[api.params]
+max_id.mastodon = { version = "2.7.0", note = "can be used with min_id in 3.3.0" }
+since_id.mastodon = "2.7.0"
+min_id.mastodon = { version = "2.7.0", note = "can be used with max_i in 3.3.0" }
+limit.mastodon = "2.7.0"
+
+[[api]]
+request = "GET /api/v1/scheduled_statuses/:id"
+response = "scheduled-status"
+[api.software]
+mastodon.version = "2.7.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/scheduled_statuses/#get-one"
+[api.params]
+id.mastodon = "2.7.0"
+
+[[api]]
+request = "PUT /api/v1/scheduled_statuses/:id"
+response = "scheduled-status"
+[api.software]
+mastodon.version = "2.7.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/scheduled_statuses/#update"
+[api.params]
+id.mastodon = "2.7.0"
+scheduled_at.mastodon = "2.7.0"
+
+[[api]]
+request = "DELETE /api/v1/scheduled_statuses/:id"
+[api.software]
+mastodon.version = "2.7.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/scheduled_statuses/#cancel"
+[api.params]
+id.mastodon = "2.7.0"

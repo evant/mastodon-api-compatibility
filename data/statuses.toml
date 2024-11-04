@@ -36,6 +36,53 @@ poll.mastodon = "2.8.0"
 card.entity = "preview-card"
 card.mastodon = "2.6.0"
 language.mastodon = "1.4.0"
+edited_at.mastodon = "3.5.0"
+favorited.mastodon = "0.1.0"
+rebogged.mastodon = "0.1.0"
+muted.mastodon = "1.4.0"
+bookmarked.mastodon = "3.1.0"
+pinned.mastodon = "1.6.0"
+"filtered[]".entity = "filter-result"
+"filtered[]".mastodon = "4.0.0"
+
+[entity.deleted-status]
+name = "Deleted Status"
+[entity.deleted-status.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Status/"
+[entity.deleted-status.attributes]
+id.mastodon = "0.1.0"
+uri.mastodon = "0.1.0"
+created_at.mastodon = "0.1.0"
+account.mastodon = "0.1.0"
+content.mastodon = "0.1.0"
+visibility.entity = "visibility"
+visibility.mastodon = "0.9.9"
+sensitive.mastodon = "0.9.9"
+spoiler_text.mastodon = "1.0.0"
+"media_attachments[]".entity = "media-attachment"
+"media_attachments[]".mastodon = "0.6.0"
+application.mastodon = "0.9.9"
+"application[name]".mastodon = "0.9.9"
+"application[website]".mastodon = { version = "0.9.9", note = "nullable in 3.5.1" }
+"mentions[]".entity = "mention"
+"mentions[]".mastodon = "0.6.0"
+"tags[]".entity = "tag"
+"tags[]".mastodon = "0.6.0"
+"emojis[]".entity = "custom-emoji"
+"emojis[]".mastodon = "2.0.0"
+reblogs_count.mastodon = "0.1.0"
+favourites_count.mastodon = "0.1.0"
+replies_count.mastodon = "2.5.0"
+url.mastodon = "0.1.0"
+in_reply_to_id.mastodon = "0.1.0"
+in_reply_to_account_id.mastodon = "0.1.0"
+reblog.mastodon = "0.1.0"
+poll.entity = "poll"
+poll.mastodon = "2.8.0"
+card.entity = "preview-card"
+card.mastodon = "2.6.0"
+language.mastodon = "1.4.0"
 text.mastodon = "2.9.0"
 edited_at.mastodon = "3.5.0"
 favorited.mastodon = "0.1.0"
@@ -57,11 +104,15 @@ unlisted.mastodon = "0.9.9"
 private.mastodon = "0.9.9"
 direct.mastodon = "0.9.9"
 
-[entity.media-attachment]
-name = "Media Attachment"
-[entity.media-attachment.software]
-mastodon.version = "TODO"
-mastodon.docs = "TODO"
+[entity.boost-visibility]
+name = "Boost Visibility"
+[entity.boost-visibility.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#form-data-parameters-2"
+[entity.boost-visibility.values]
+public.mastodon = "2.8.0"
+unlisted.mastodon = "2.8.0"
+private.mastodon = "2.8.0"
 
 [entity.mention]
 name = "Mention"
@@ -73,34 +124,6 @@ id.mastodon = "0.6.0"
 username.mastodon = "0.6.0"
 url.mastodon = "0.6.0"
 acct.mastodon = "0.6.0"
-
-[entity.poll]
-name = "Poll"
-[entity.poll.software]
-mastodon.version = "2.8.0"
-mastodon.docs = "https://docs.joinmastodon.org/entities/Poll/"
-[entity.poll.attributes]
-id.mastodon = "2.8.0"
-expires_at.mastodon = "2.8.0"
-expired.mastodon = "2.8.0"
-multiple.mastodon = "2.8.0"
-votes_count.mastodon = "2.8.0"
-voters_count.mastodon = "2.8.0"
-"options[]".entity = "poll-option"
-"options[]".mastodon = "2.8.0"
-"emojis[]".entity = "custom-emoji"
-"emojis[]".mastodon = "2.8.0"
-voted.mastodon = "2.8.0"
-own_votes.mastodon = "2.8.0"
-
-[entity.poll-option]
-name = "Poll Option"
-[entity.poll-option.software]
-mastodon.version = "2.8.0"
-mastodon.docs = "https://docs.joinmastodon.org/entities/Poll/#Option"
-[entity.poll-option.attributes]
-title.mastodon = "2.8.0"
-votes_count.mastodon = "2.8.0"
 
 [entity.preview-card]
 name = "Preview Card"
@@ -214,3 +237,334 @@ mastodon.docs = "https://docs.joinmastodon.org/entities/FilterStatus/"
 [entity.filter-status.attributes]
 id.mastodon = "4.0.0"
 status_id.mastodon = "4.0.0"
+
+[entity.context]
+name = "Context"
+[entity.context.software]
+mastodon.version = "0.6.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Context/"
+[entity.context.attributes]
+"ancestors[]".entity = "status"
+"ancestors[]".mastodon = "0.6.0"
+"descendants[]".entity = "status"
+"descendants[]".mastodon = "0.6.0"
+
+[[api]]
+request = "POST /api/v1/statuses"
+response = "status"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#create"
+[api.params]
+Idempotency-Key.mastodon = "0.0.0"
+status.mastodon = "0.0.0"
+"media_ids[]".mastodon = "0.0.0"
+"poll[options][]".mastodon = "2.8.0"
+"poll[expires_in]".mastodon = "2.8.0"
+"poll[multiple]".mastodon = "2.8.0"
+"poll[hide_totals]".mastodon = "2.8.0"
+"in_reply_to_id".mastodon = "0.0.0"
+sensitive.mastodon = "0.9.9"
+spoiler_text.mastodon = "1.0.0"
+visibility.entity = "visibility"
+visibility.mastodon = "0.9.9"
+language.mastodon = "1.4.0"
+
+[[api]]
+request = "POST /api/v1/statuses (Scheduled)"
+response = "scheduled-status"
+[api.software]
+mastodon.version = "2.7.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#create"
+[api.params]
+Idempotency-Key.mastodon = "2.7.0"
+status.mastodon = "2.7.0"
+"media_ids[]".mastodon = "2.7.0"
+"poll[options][]".mastodon = "2.8.0"
+"poll[expires_in]".mastodon = "2.8.0"
+"poll[multiple]".mastodon = "2.8.0"
+"poll[hide_totals]".mastodon = "2.8.0"
+"in_reply_to_id".mastodon = "2.7.0"
+sensitive.mastodon = "2.7.0"
+spoiler_text.mastodon = "2.7.0"
+visibility.entity = "visibility"
+visibility.mastodon = "2.7.0"
+language.mastodon = "2.7.0"
+scheduled_at.mastodon = "2.7.0"
+
+[entity.translation]
+name = "Translation"
+[entity.translation.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Translation/"
+[entity.translation.attributes]
+content.mastodon = "4.0.0"
+spoil_text.mastodon = "4.2.0"
+poll.entity = "translation-poll"
+poll.mastodon = "4.2.0"
+"media_attachments[]".entity = "translation-media-attachment"
+"media_attachments[]".mastodon = "4.2.0"
+detected_source_language.mastodon = "4.0.0"
+provider.mastodon = "4.0.0"
+
+[entity.translation-poll]
+name = "Translation Poll"
+[entity.translation-poll.software]
+mastodon.version = "4.2.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Translation/#Poll"
+[entity.translation-poll.attributes]
+id.mastodon = "4.2.0"
+"options[]".entity = "translation-poll-option"
+"options[]".mastodon = "4.2.0"
+
+[entity.translation-poll-option]
+name = "Translation Poll Option"
+[entity.translation-poll-option.software]
+mastodon.version = "4.2.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Translation/#Option"
+[entity.translation-poll-option.attributes]
+title.mastodon = "4.2.0"
+
+[entity.translation-media-attachment]
+name = "Translation Media Attachment"
+[entity.translation-media-attachment.software]
+mastodon.version = "4.2.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Translation/#Attachment"
+[entity.translation-media-attachment.attributes]
+id.mastodon = "4.2.0"
+description.mastodon = "4.2.0"
+
+[entity.status-edit]
+name = "Status Edit"
+[entity.status-edit.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/StatusEdit/"
+[entity.status-edit.attributes]
+content.mastodon = "3.5.0"
+spoiler_text.mastodon = "3.5.0"
+sensitive.mastodon = "3.5.0"
+created_at.mastodon = "3.5.0"
+account.entity = "account"
+account.mastodon = "3.5.0"
+"poll[options][][title]".mastodon = "3.5.0"
+"media_attachments[]".entity = "media-attachment"
+"media_attachments[]".mastodon = "3.5.0"
+"emojis[]".entity = "custom-emoji"
+"emojis[]".mastodon = "3.5.0"
+
+[entity.status-source]
+name = "Status Source"
+[entity.status-source.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/StatusSource/"
+[entity.status-source.attributes]
+id.mastodon = "3.5.0"
+text.mastodon = "3.5.0"
+spoiler_text.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/statuses/:id"
+response = "status"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#get"
+mastodon.note = "Public statuses no longer require token in 2.7.0"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/statuses"
+response = "status[]"
+[api.software]
+mastodon.version = "4.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#index"
+[api.params]
+"id[]".mastodon = "4.3.0"
+
+[[api]]
+request = "DELETE /api/v1/statuses/:id"
+response = "deleted-status"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#delete"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/statuses/:id/context"
+response = "context"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#context"
+mastodon.note = "limit unauthenticated requests in 4.0.0"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/translate"
+response = "translation"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#translate"
+[api.params]
+id.mastodon = "4.0.0"
+lang.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/statuses/:id/reblogged_by"
+response = "account[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#reblogged_by"
+[api.params]
+id.mastodon = "0.0.0"
+limit.mastodon = "0.0.0"
+
+[[api]]
+request = "GET /api/v1/statuses/:id/favourited_by"
+response = "account[]"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#favourited_by"
+[api.params]
+id.mastodon = "0.0.0"
+limit.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/favourite"
+response = "status"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#favourite"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/unfavourite"
+response = "status"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#unfavourite"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/reblog"
+response = "status"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#unfavourite"
+[api.params]
+id.mastodon = "0.0.0"
+visibility.entity = "boost-visibility"
+visibility.mastodon = "2.8.0"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/unreblog"
+response = "status"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#unreblog"
+[api.params]
+id.mastodon = "0.0.0"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/bookmark"
+response = "status"
+[api.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#bookmark"
+[api.params]
+id.mastodon = "3.1.0"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/unbookmark"
+response = "status"
+[api.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#unbookmark"
+[api.params]
+id.mastodon = "3.1.0"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/mute"
+response = "status"
+[api.software]
+mastodon.version = "1.4.2"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#mute"
+[api.params]
+id.mastodon = "1.4.2"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/unmute"
+response = "status"
+[api.software]
+mastodon.version = "1.4.2"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#unmute"
+[api.params]
+id.mastodon = "1.4.2"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/pin"
+response = "status"
+[api.software]
+mastodon.version = "1.6.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#pin"
+mastodon.note = "Can pin private posts in 3.5.0"
+[api.params]
+id.mastodon = "1.6.0"
+
+[[api]]
+request = "POST /api/v1/statuses/:id/unpin"
+response = "status"
+[api.software]
+mastodon.version = "1.6.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#unpin"
+[api.params]
+id.mastodon = "1.6.0"
+
+[[api]]
+request = "PUT /api/v1/statuses/:id"
+response = "status"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#edit"
+[api.params]
+id.mastodon = "3.5.0"
+status.mastodon = "3.5.0"
+spoiler_text.mastodon = "3.5.0"
+sensitive.mastodon = "3.5.0"
+language.mastodon = "4.0.0"
+"media_ids[]".mastodon = "3.5.0"
+"media_attributes[][]".mastodon = "3.5.0"
+"poll[options][]".mastodon = "3.5.0"
+"poll[expires_in]".mastodon = "3.5.0"
+"poll[multiple]".mastodon = "3.5.0"
+"poll[hide_totals]".mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/statuses/:id/history"
+response = "status-edit[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#history"
+[api.params]
+id.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/statuses/:id/source"
+response = "status-source"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#source"
+[api.params]
+id.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/statuses/:id/card"
+response = "preview-card"
+[api.software]
+mastodon.version = "0.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/statuses/#card"
+mastodon.deprecated = "2.6.0"
+mastodon.removed = "3.0.0"
+[api.params]
+id.mastodon = "0.0.0"
