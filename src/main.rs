@@ -11,6 +11,7 @@ use std::{
 
 use anyhow::Context;
 use mdbook::{book::Chapter, BookItem, MDBook};
+use mdbook_admonish::Admonish;
 use parse::{parse_data_file, parse_software_file};
 use serde::Serialize;
 use tera::Tera;
@@ -198,6 +199,8 @@ fn main() {
 
 fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut md = MDBook::load(".")?;
+
+    md.with_preprocessor(Admonish);
 
     let site_url = md
         .config
