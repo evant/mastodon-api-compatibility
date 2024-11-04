@@ -301,6 +301,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             check_software_exists(&software, Some(name), key, &value.software)?;
         }
 
+        for (key, value) in &entity.values {
+            check_software_exists(&software, Some(name), key, &value.software)?;
+        }
+
         let entity_page = EntityPage {
             title: &entity.name,
             software: &software,
