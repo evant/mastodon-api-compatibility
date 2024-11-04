@@ -35,7 +35,7 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
       - name: Build
         env:
-          MDBOOK_OUTPUT__HTML__SITE_URL: "{{ steps.pages.outputs.base_url }}"
+          MDBOOK_OUTPUT__HTML__SITE_URL: "${{ steps.pages.outputs.base_url }}/"
         run: |
           cargo install mdbook-admonish
           cargo run
