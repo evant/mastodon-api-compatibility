@@ -6,6 +6,7 @@ use std::{
     ffi::OsStr,
     fmt::Display,
     hash::Hash,
+    path::PathBuf,
 };
 
 use anyhow::Context;
@@ -13,6 +14,7 @@ use mdbook::{book::Chapter, BookItem, MDBook};
 use parse::{parse_data_file, parse_software_file};
 use serde::Serialize;
 use tera::Tera;
+use walkdir::WalkDir;
 
 #[derive(Serialize)]
 struct SoftwareDef {
@@ -198,25 +200,33 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .map(|(key, software)| SoftwareDef::from(key, software))
         .collect();
     let mut entities: BTreeMap<String, Entity> = BTreeMap::new();
-    let mut apis: BTreeMap<String, Vec<Api>> = BTreeMap::new();
+    let mut apis: BTreeMap<PathBuf, Vec<Api>> = BTreeMap::new();
 
-    for path in std::fs::read_dir("data")? {
-        let path = path?.path();
-        if path.file_stem() == Some(OsStr::new("software")) {
-            continue;
+    for entry in WalkDir::new("data")
+        .contents_first(false)
+        .sort_by_file_name()
+    {
+        let entry = entry?;
+        if entry.file_type().is_file() {
+            let path = entry.path();
+            if path.file_stem() == Some(OsStr::new("software")) {
+                continue;
+            }
+            let data = parse_data_file(path)?;
+            entities.extend(data.entity.values_into());
+            apis.insert(
+                path.with_extension("").to_owned(),
+                data.api.into_iter().map(|api| api.into()).collect(),
+            );
         }
-        let name = path.file_stem().unwrap().to_string_lossy().to_string();
-        let data = parse_data_file(path)?;
-        entities.extend(data.entity.values_into());
-        apis.insert(name, data.api.into_iter().map(|api| api.into()).collect());
     }
 
-    let tera = Tera::new("templates/*.*")?;
+    let tera = Tera::new("templates/**/*.*")?;
 
     md.book
         .push_item(BookItem::PartTitle("Api Methods".to_string()));
 
-    for (name, apis) in apis.into_iter() {
+    for (path, apis) in apis.into_iter() {
         for api in &apis {
             check_software_exists(&software, None, &api.request, &api.software)?;
 
@@ -243,21 +253,26 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         let rendered = tera
             .render("apis.md", &context)
             .map_err(TeraError)
-            .with_context(|| format!("In file: {}.toml", &name))?;
+            .with_context(|| format!("In file: {:?}", &path))?;
 
-        md.book.push_item(Chapter::new(
-            &name,
-            rendered,
-            format!("api-methods/{}", name),
-            vec!["Api Methods".to_string()],
-        ));
+        let path = PathBuf::from("api-methods").join(path.strip_prefix("data")?);
+        let parent_names: Vec<_> = path
+            .iter()
+            .skip(2)
+            .map(|p| p.to_string_lossy().to_string())
+            .collect();
+
+        let mut rendered_name ="&emsp;".repeat(parent_names.len());
+        rendered_name.push_str(&path.file_stem().unwrap().to_string_lossy());
+
+        md.book
+            .push_item(Chapter::new(&rendered_name, rendered, path, parent_names));
     }
 
     md.book
         .push_item(BookItem::PartTitle("Api Entities".to_string()));
 
     for (name, entity) in entities.iter() {
-
         check_software_exists(&software, None, name, &entity.software)?;
 
         for (key, value) in &entity.attributes {
@@ -286,13 +301,24 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn check_software_exists(software: &[SoftwareDef], context: Option<&str>, key: &str, attribute_software: &HashMap<String, Software>) -> Result<(), Box<dyn std::error::Error>> {
+fn check_software_exists(
+    software: &[SoftwareDef],
+    context: Option<&str>,
+    key: &str,
+    attribute_software: &HashMap<String, Software>,
+) -> Result<(), Box<dyn std::error::Error>> {
     for k in attribute_software.keys() {
         if !software.iter().any(|s| &s.key == k) {
             if let Some(context) = context {
-                return Err(format!("Software '{}' not found for '{}.{}' in software.toml", k, context, key).into());
+                return Err(format!(
+                    "Software '{}' not found for '{}.{}' in software.toml",
+                    k, context, key
+                )
+                .into());
             } else {
-                return Err(format!("Software '{}' not found for '{}' in software.toml", k, key).into());
+                return Err(
+                    format!("Software '{}' not found for '{}' in software.toml", k, key).into(),
+                );
             }
         }
     }
