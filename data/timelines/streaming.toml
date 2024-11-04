@@ -1,0 +1,181 @@
+[entity.streaming-user-event]
+name = "Streaming User Event"
+[entity.streaming-user-event.software]
+mastodon.version = "1.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
+[entity.streaming-user-event.values]
+update.mastodon = "1.0.0"
+delete.mastodon = "1.0.0"
+notification.mastodon = "1.4.2"
+filters_changed.mastodon = "2.4.3"
+announcement.mastodon = "3.1.0"
+"announcement.reaction".mastodon = "3.1.0"
+"announcement.delete".mastodon = "3.1.0"
+"status.update".mastodon = "3.5.0"
+
+[entity.streaming-notification-event]
+name = "Streaming Notification Event"
+[entity.streaming-notification-event.software]
+mastodon.version = "1.4.2"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
+[entity.streaming-notification-event.values]
+notification.mastodon = "1.4.2"
+
+[entity.streaming-timeline-event]
+name = "Streaming Timeline Event"
+[entity.streaming-timeline-event.software]
+mastodon.version = "1.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
+[entity.streaming-timeline-event.values]
+update.mastodon = "1.0.0"
+delete.mastodon = "1.0.0"
+"status.update".mastodon = "3.5.0"
+
+[entity.streaming-direct-event]
+name = "Streaming Direct Event"
+[entity.streaming-direct-event.software]
+mastodon.version = "2.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
+[entity.streaming-direct-event.values]
+conversation.mastodon = "2.6.0"
+update.mastodon = { version = "2.4.0", removed = "2.6.0" }
+
+[entity.streaming-category]
+name = "Streaming Category"
+[entity.streaming-category.software]
+mastodon.version = "3.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#streams"
+[entity.streaming-category.values]
+public.mastodon = "3.3.0"
+"public:media".mastodon = "3.3.0"
+"public:local".mastodon = "3.3.0"
+"public:local:media".mastodon = "3.3.0"
+"public:remote".mastodon = "3.3.0"
+"public:remote:media".mastodon = "3.3.0"
+hashtag.mastodon = "3.3.0"
+"hashtag:local".mastodon = "3.3.0"
+user.mastodon = "3.3.0"
+"user:notification".mastodon = "3.3.0"
+list.mastodon = "3.3.0"
+direct.mastodon = "3.3.0"
+
+[[api]]
+request = "GET /api/v1/streaming/health"
+[api.software]
+mastodon.version = "2.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#health"
+
+[[api]]
+request = "GET /api/v1/streaming/user"
+[api.software]
+mastodon.version = "1.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#user"
+[api.response]
+event.entity = "streaming-user-event"
+event.mastodon = "1.0.0"
+data.mastodon = "1.0.0"
+
+[[api]]
+request = "GET /api/v1/streaming/user/notification"
+[api.software]
+mastodon.version = "1.4.2"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#notification"
+[api.response]
+event.entity = "streaming-notification-event"
+event.mastodon = "1.4.2"
+data.mastodon = "1.4.2"
+
+[[api]]
+request = "GET /api/v1/streaming/public"
+[api.software]
+mastodon.version = "1.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#public"
+[api.params]
+only_media.mastodon = "2.4.0"
+[api.response]
+event.entity = "streaming-timeline-event"
+event.mastodon = "1.0.0"
+data.mastodon = "1.0.0"
+
+[[api]]
+request = "GET /api/v1/streaming/public/local"
+[api.software]
+mastodon.version = "1.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#public-local"
+[api.params]
+only_media.mastodon = "2.4.0"
+[api.response]
+event.entity = "streaming-timeline-event"
+event.mastodon = "1.1.0"
+data.mastodon = "1.1.0"
+
+[[api]]
+request = "GET /api/v1/streaming/public/remote"
+[api.software]
+mastodon.version = "3.1.4"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#public-remote"
+[api.params]
+only_media.mastodon = "2.4.0"
+[api.response]
+event.entity = "streaming-timeline-event"
+event.mastodon = "3.1.4"
+data.mastodon = "3.1.4"
+
+[[api]]
+request = "GET /api/v1/streaming/hashtag"
+[api.software]
+mastodon.version = "1.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#hashtag"
+[api.params]
+tag.mastodon = "1.0.0"
+[api.response]
+event.entity = "streaming-timeline-event"
+event.mastodon = "1.0.0"
+data.mastodon = "1.0.0"
+
+[[api]]
+request = "GET /api/v1/streaming/hashtag/local"
+[api.software]
+mastodon.version = "1.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#hashtag-local"
+[api.params]
+tag.mastodon = "1.1.0"
+[api.response]
+event.entity = "streaming-timeline-event"
+event.mastodon = "1.1.0"
+data.mastodon = "1.1.0"
+
+[[api]]
+request = "GET /api/v1/streaming/list"
+[api.software]
+mastodon.version = "2.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#list"
+[api.params]
+list.mastodon = "2.1.0"
+[api.response]
+event.entity = "streaming-timeline-event"
+event.mastodon = "2.1.0"
+data.mastodon = "2.1.0"
+
+[[api]]
+request = "GET /api/v1/streaming/direct"
+[api.software]
+mastodon.version = "2.4.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#direct"
+[api.response]
+event.entity = "streaming-direct-event"
+event.mastodon = "2.4.0"
+data.mastodon = "2.4.0"
+
+[[api]]
+request = "wss://mastodon.example/api/v1/streaming"
+[api.software]
+mastodon.version = "3.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#websocket"
+[api.params]
+access_token.mastodon = "3.3.0"
+stream.entity = "streaming-category"
+stream.mastodon = "3.3.0"
+list.mastodon = "3.3.0"
+tag.mastodon = "3.3.0"
+type.mastodon = "3.3.0"
