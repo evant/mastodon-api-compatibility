@@ -7,7 +7,7 @@
 <span data-tooltip="deprecated in {{ version.deprecated }}"><i class="icon iwarning"></i></span>
 {%- endif -%}
 {%- if version.removed -%}
-<span data-tooltip="deprecated in {{ version.removed }}"><i class="icon ierror"></i></span>
+<span data-tooltip="removed in {{ version.removed }}"><i class="icon ierror"></i></span>
 {%- endif -%}
 {%- endmacro version %}
 
@@ -23,7 +23,8 @@
 <tr>
 <td>
 {{- name }} {% if value.entity -%}
-<a href="../api-entities/{{ value.entity }}.html">{{ entities[value.entity].name }}</a>
+{%- set entity = entities[value.entity] -%}
+<a href="{{ entity.path }}.html">{{ entity.name }}</a>
 {%- endif %}</td>
 {%- for software in software -%}
 <td>{%- if software.key in value.software -%}
