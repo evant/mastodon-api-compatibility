@@ -76,15 +76,17 @@ impl From<parse::Software> for Software {
 #[derive(Serialize, Clone)]
 struct Entity {
     name: String,
+    path: String,
     software: HashMap<String, Software>,
     attributes: HashMap<String, Attribute>,
     values: HashMap<String, Attribute>,
 }
 
-impl From<parse::Entity> for Entity {
-    fn from(entity: parse::Entity) -> Self {
+impl Entity {
+    fn from(entity: parse::Entity, path: String) -> Self {
         Self {
             name: entity.name,
+            path,
             software: entity.software.values_into(),
             attributes: entity.attributes.values_into(),
             values: entity.values.values_into(),
@@ -167,6 +169,7 @@ impl From<parse::Response> for Vec<Response> {
 
 #[derive(Serialize)]
 struct ApisPage<'a> {
+    title: &'a str,
     software: &'a Vec<SoftwareDef>,
     entities: &'a BTreeMap<String, Entity>,
     apis: &'a Vec<Api>,
@@ -174,6 +177,7 @@ struct ApisPage<'a> {
 
 #[derive(Serialize)]
 struct EntityPage<'a> {
+    title: &'a str,
     software: &'a Vec<SoftwareDef>,
     entities: &'a BTreeMap<String, Entity>,
     entity: &'a Entity,
@@ -195,6 +199,12 @@ fn main() {
 fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut md = MDBook::load(".")?;
 
+    let site_url = md
+        .config
+        .get("output.html.site-url")
+        .and_then(|v| v.as_str())
+        .unwrap_or("/");
+
     let software: Vec<_> = parse_software_file("data/software.toml")?
         .into_iter()
         .map(|(key, software)| SoftwareDef::from(key, software))
@@ -213,9 +223,18 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 continue;
             }
             let data = parse_data_file(path)?;
-            entities.extend(data.entity.values_into());
+            let path = path.with_extension("");
+            let new_entities: BTreeMap<_, _> = data
+                .entity
+                .into_iter()
+                .map(|(k, v)| {
+                    let entity_path = format!("{}api-entities/{}", site_url, k);
+                    (k, Entity::from(v, entity_path))
+                })
+                .collect();
+            entities.extend(new_entities);
             apis.insert(
-                path.with_extension("").to_owned(),
+                path.to_owned(),
                 data.api.into_iter().map(|api| api.into()).collect(),
             );
         }
@@ -243,7 +262,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
 
+        let name = path.file_stem().unwrap().to_string_lossy();
+
         let apis_page = ApisPage {
+            title: &name,
             software: &software,
             entities: &entities,
             apis: &apis,
@@ -262,8 +284,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             .map(|p| p.to_string_lossy().to_string())
             .collect();
 
-        let mut rendered_name ="&emsp;".repeat(parent_names.len());
-        rendered_name.push_str(&path.file_stem().unwrap().to_string_lossy());
+        let mut rendered_name = "&emsp;".repeat(parent_names.len());
+        rendered_name.push_str(&name);
 
         md.book
             .push_item(Chapter::new(&rendered_name, rendered, path, parent_names));
@@ -280,6 +302,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
 
         let entity_page = EntityPage {
+            title: &entity.name,
             software: &software,
             entities: &entities,
             entity,
