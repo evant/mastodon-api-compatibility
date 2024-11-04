@@ -37,7 +37,6 @@ jobs:
         env:
           MDBOOK_OUTPUT__HTML__SITE_URL: "${{ steps.pages.outputs.base_url }}/"
         run: |
-          cargo install mdbook-admonish
           cargo run
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
