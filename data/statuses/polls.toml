@@ -1,0 +1,46 @@
+[entity.poll]
+name = "Poll"
+[entity.poll.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Poll/"
+[entity.poll.attributes]
+id.mastodon = "2.8.0"
+expires_at.mastodon = "2.8.0"
+expired.mastodon = "2.8.0"
+multiple.mastodon = "2.8.0"
+votes_count.mastodon = "2.8.0"
+voters_count.mastodon = "2.8.0"
+"options[]".entity = "poll-option"
+"options[]".mastodon = "2.8.0"
+"emojis[]".entity = "custom-emoji"
+"emojis[]".mastodon = "2.8.0"
+voted.mastodon = "2.8.0"
+own_votes.mastodon = "2.8.0"
+
+[entity.poll-option]
+name = "Poll Option"
+[entity.poll-option.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Poll/#Option"
+[entity.poll-option.attributes]
+title.mastodon = "2.8.0"
+votes_count.mastodon = "2.8.0"
+
+[[api]]
+request = "GET /api/v1/polls/:id"
+response = "poll"
+[api.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/polls/#get"
+[api.params]
+id.mastodon = "2.8.0"
+
+[[api]]
+request = "POST /api/v1/polls/:id/votes"
+response = "poll"
+[api.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/polls/#vote"
+[api.params]
+id.mastodon = "2.8.0"
+"choices[]".mastodon = "2.8.0"

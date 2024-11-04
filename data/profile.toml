@@ -1,0 +1,13 @@
+[[api]]
+request = "DELETE /api/v1/profile/avatar"
+response = "credential-account"
+[api.software]
+mastodon.version = "4.2.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/profile/#delete-profile-avatar"
+
+[[api]]
+request = "DELETE /api/v1/profile/header"
+response = "credential-account"
+[api.software]
+mastodon.version = "4.2.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/profile/#delete-profile-header"
