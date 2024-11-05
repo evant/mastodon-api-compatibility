@@ -1,0 +1,85 @@
+[entity.search.software]
+mastodon.version = "2.4.1"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Search/"
+[entity.search.attributes]
+"accounts[]".entity = "account"
+"accounts[]".mastodon = "2.4.1"
+"statuses[]".entity = "status"
+"statuses[]".mastodon = "2.4.1"
+"hashtags[]".entity = "tag"
+"hashtags[]".mastodon = "2.4.1"
+
+[entity.v1-search.software]
+mastodon.version = "1.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Search/"
+[entity.v1-search.attributes]
+"accounts[]".entity = "account"
+"accounts[]".mastodon = "1.1.0"
+"statuses[]".entity = "status"
+"statuses[]".mastodon = "1.1.0"
+"hashtags[]".mastodon = "1.1.0"
+
+[entity.search-query.software]
+mastodon.version = "2.4.1"
+[entity.search-query.values]
+"from:username@domain".mastodon = "3.5.0"
+"from:me".mastodon = "4.2.0"
+"before:YYY-MM-DD".mastodon = "4.2.0"
+"after:YYY-MM-DD".mastodon = "4.2.0"
+"during:YYY-MM-DD".mastodon = "4.2.0"
+"language:en".mastodon = "4.2.0"
+"has:media".mastodon = "4.2.0"
+"has:poll".mastodon = "4.2.0"
+"has:embed".mastodon = "4.2.0"
+"in:all".mastodon = "4.2.0"
+"in:library".mastodon = "4.2.0"
+"in:public".mastodon = "4.2.0"
+
+[entity.search-type.software]
+mastodon.version = "2.8.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/search/#query-parameters"
+[entity.search-type.values]
+accounts.mastodon = "2.8.0"
+hashtags.mastodon = "2.8.0"
+statuses.mastodon = "2.8.0"
+
+[[api]]
+request = "GET /api/v2/search"
+response = "search"
+[api.software]
+mastodon.version = "2.4.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/search/#v2"
+mastodon.note = "Does not require user token unless using resolve or offset in 4.0.0"
+[api.params]
+q.entity = "search-query"
+q.mastodon = "2.4.1"
+type.entity = "search-type"
+type.mastodon = "2.8.0"
+resolve.mastodon = "2.4.1"
+following.mastodon = "2.4.1"
+account_id.mastodon = "2.4.1"
+exclude_unreviewed.mastodon = "3.0.0"
+max_id.mastodon = { version = "2.8.0", note = "can be used with min_id in 3.3.0" }
+min_id.mastodon = { version = "2.8.0", note = "can be used with max_id in 3.3.0" }
+limit.mastodon = "2.8.0"
+offset.mastodon = "2.8.0"
+
+[[api]]
+request = "GET /api/v1/search"
+response = "v1-search"
+[api.software]
+mastodon.version = "1.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/search/#v1"
+mastodon.note = "Requires authentication in 1.5.0"
+mastodon.deprecated = "2.4.1"
+mastodon.removed = "3.0.0"
+[api.params]
+q.mastodon = "1.1.0"
+type.entity = "search-type"
+type.mastodon = "2.8.0"
+resolve.mastodon = "1.1.0"
+account_id.mastodon = "2.8.0"
+max_id.mastodon = "2.8.0"
+min_id.mastodon = "2.8.0"
+limit.mastodon = "2.8.0"
+offset.mastodon = "2.8.0"
