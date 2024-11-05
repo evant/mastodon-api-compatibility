@@ -1,5 +1,3 @@
-[entity.suggestion]
-name = "Suggestion"
 [entity.suggestion.software]
 mastodon.version = "3.4.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Suggestion/"
@@ -11,8 +9,6 @@ source.mastodon = { version = "3.4.0", deprecated = "4.3.0" }
 account.entity = "account"
 account.mastodon = "3.4.0"
 
-[entity.v2-suggestion-source]
-name = "V2 Suggestion Source"
 [entity.v2-suggestion-source.software]
 mastodon.version = "3.4.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Suggestion/#attributes"

@@ -1,5 +1,3 @@
-[entity.streaming-user-event]
-name = "Streaming User Event"
 [entity.streaming-user-event.software]
 mastodon.version = "1.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
@@ -13,16 +11,12 @@ announcement.mastodon = "3.1.0"
 "announcement.delete".mastodon = "3.1.0"
 "status.update".mastodon = "3.5.0"
 
-[entity.streaming-notification-event]
-name = "Streaming Notification Event"
 [entity.streaming-notification-event.software]
 mastodon.version = "1.4.2"
 mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
 [entity.streaming-notification-event.values]
 notification.mastodon = "1.4.2"
 
-[entity.streaming-timeline-event]
-name = "Streaming Timeline Event"
 [entity.streaming-timeline-event.software]
 mastodon.version = "1.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
@@ -31,8 +25,6 @@ update.mastodon = "1.0.0"
 delete.mastodon = "1.0.0"
 "status.update".mastodon = "3.5.0"
 
-[entity.streaming-direct-event]
-name = "Streaming Direct Event"
 [entity.streaming-direct-event.software]
 mastodon.version = "2.4.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
@@ -40,8 +32,6 @@ mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#events"
 conversation.mastodon = "2.6.0"
 update.mastodon = { version = "2.4.0", removed = "2.6.0" }
 
-[entity.streaming-category]
-name = "Streaming Category"
 [entity.streaming-category.software]
 mastodon.version = "3.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/streaming/#streams"

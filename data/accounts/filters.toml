@@ -1,5 +1,3 @@
-[entity.filter]
-name = "Filter"
 [entity.filter.software]
 mastodon.version = "4.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/"
@@ -28,8 +26,6 @@ public.mastodon = "2.4.3"
 thread.mastodon = "2.4.3"
 account.mastodon = "3.1.0"
 
-[entity.filter-action]
-name = "Filter Action"
 [entity.filter-action.software]
 mastodon.version = "4.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/#filter_action"
@@ -37,8 +33,6 @@ mastodon.docs = "https://docs.joinmastodon.org/entities/Filter/#filter_action"
 warn.mastodon = "4.0.0"
 hide.mastodon = "4.0.0"
 
-[entity.filter-keyword]
-name = "Filter Keyword"
 [entity.filter-keyword.software]
 mastodon.version = "4.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/FilterKeyword/"
@@ -47,8 +41,6 @@ id.mastodon = "4.0.0"
 keyword.mastodon = "4.0.0"
 whole_word.mastodon = "4.0.0"
 
-[entity.filter-status]
-name = "Filter Status"
 [entity.filter-status.software]
 mastodon.version = "4.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/FilterStatus/"
@@ -56,8 +48,6 @@ mastodon.docs = "https://docs.joinmastodon.org/entities/FilterStatus/"
 id.mastodon = "4.0.0"
 status_id.mastodon = "4.0.0"
 
-[entity.v1-filter]
-name = "V1 Filter"
 [entity.v1-filter.software]
 mastodon.version = "2.4.3"
 mastodon.deprecated = "4.0.0"

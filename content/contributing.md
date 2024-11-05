@@ -29,6 +29,7 @@ To re-run after changes you can use
 [cargo-watch](https://crates.io/crates/cargo-watch).
 
 Tip: if you aren't editing the rust code, you can build with release.
+
 ```bash
 cargo install cargo-watch
 cargo watch -x 'run --release'
@@ -120,6 +121,7 @@ error.mastodon = "0.1.0"
 ```
 
 A response may also have nested keys or array.
+
 - You can append `[]` to indicate an array,
 - and `[name]` to indicate a nested key.
 - If the nested keys are an arbitrary map, you can use `[:key][name]`.
@@ -134,12 +136,16 @@ A response may also have nested keys or array.
 ```
 
 #### Versions
+
 You can define a software version in a couple ways. The shortest form is just a
 string.
+
 ```toml
 mastodon = "0.0.0"
 ```
+
 The long form allows you to define additional information.
+
 ```toml
 # (required) The version.
 mastodon.version = "0.0.0"
@@ -152,6 +158,7 @@ mastodon.removed = "2.2.3"
 # (optional) An arbitrary note about this api or attribute.
 mastodon.note = "behavior changed in 1.4.3"
 ```
+
 Since only a couple of these are likely to be used at a time, you can use the
 inline table format.
 
@@ -168,7 +175,7 @@ entity.
 ```toml
 # Defines an entity with key 'account'. Entity keys must be globally unique.
 [entity.account]
-# (required) The name to display.
+# (optional) The name to display. If not provided, it is derived from the key.
 name = "Account"
 # (optional) The software that supports this entity.
 [entity.account.software]

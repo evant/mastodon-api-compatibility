@@ -28,7 +28,8 @@ pub enum Software {
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Entity {
-    pub name: String,
+    #[serde(default)]
+    pub name: Option<String>,
     #[serde(default)]
     pub software: HashMap<String, Software>,
     #[serde(default)]

@@ -1,5 +1,3 @@
-[entity.application]
-name = "Application"
 [entity.application.software]
 mastodon.version = "0.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Application"
@@ -13,8 +11,6 @@ scopes.mastodon = "4.3.0"
 redirect_uris.mastodon = "4.3.0"
 vapid_keys.mastodon = { version = "2.7.2", deprecated = "4.3.0" }
 
-[entity.credential-application]
-name = "Credential Application"
 [entity.credential-application.software]
 mastodon.version = "0.9.9"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Application/#CredentialApplication"
