@@ -84,15 +84,25 @@ struct Entity {
 }
 
 impl Entity {
-    fn from(entity: parse::Entity, path: String) -> Self {
+    fn from(entity: parse::Entity, site_url: &str, key: &str) -> Self {
         Self {
-            name: entity.name,
-            path,
+            name: entity.name.unwrap_or_else(|| key_to_name(key)),
+            path: format!("{}api-entities/{}", site_url, key),
             software: entity.software.values_into(),
             attributes: entity.attributes.values_into(),
             values: entity.values.values_into(),
         }
     }
+}
+
+fn key_to_name(key: &str) -> String {
+    key.split("-")
+        .map(|w| {
+            let mut chars = w.chars();
+            chars.next().unwrap().to_uppercase().chain(chars).collect()
+        })
+        .collect::<Vec<String>>()
+        .join(" ")
 }
 
 #[derive(Serialize, Clone)]
@@ -231,8 +241,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 .entity
                 .into_iter()
                 .map(|(k, v)| {
-                    let entity_path = format!("{}api-entities/{}", site_url, k);
-                    (k, Entity::from(v, entity_path))
+                    let entity = Entity::from(v, site_url, &k);
+                    (k, entity)
                 })
                 .collect();
             entities.extend(new_entities);

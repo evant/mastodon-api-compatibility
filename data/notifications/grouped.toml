@@ -1,5 +1,3 @@
-[entity.grouped-notifications-results]
-name = "Grouped Notifications Results"
 [entity.grouped-notifications-results.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#GroupedNotificationsResults"
@@ -13,8 +11,6 @@ mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#Gr
 "notification_groups[]".entity = "notification-group"
 "notification_groups[]".mastodon = "4.3.0"
 
-[entity.partial-account-with-avatar]
-name = "Partial Account with Avatar"
 [entity.partial-account-with-avatar.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#PartialAccountWithAvatar"
@@ -27,8 +23,6 @@ avatar_static.mastodon = "4.3.0"
 locked.mastodon = "4.3.0"
 bot.mastodon = "4.3.0"
 
-[entity.notification-group]
-name = "Notification Group"
 [entity.notification-group.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#NotificationGroup"
@@ -50,8 +44,6 @@ event.mastodon = "4.3.0"
 moderation_warning.entity = "account-warning"
 moderation_warning.mastodon = "4.3.0"
 
-[entity.relationship-severance-event]
-name = "Relationship Severance Event"
 [entity.relationship-severance-event.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/RelationshipSeveranceEvent/"
@@ -64,8 +56,6 @@ target_name.mastodon = "4.3.0"
 relationships_count.mastodon = "4.3.0"
 created_at.mastodon = "4.3.0"
 
-[entity.relationship-severance-type]
-name = "Relationship Severance Type"
 [entity.relationship-severance-type.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/RelationshipSeveranceEvent/#type"
@@ -74,8 +64,6 @@ domain_block.mastodon = "4.3.0"
 user_domain_block.mastodon = "4.3.0"
 account_suspension.mastodon = "4.3.0"
 
-[entity.account-warning]
-name = "Account Warning"
 [entity.account-warning.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/AccountWarning/"
@@ -89,8 +77,6 @@ appeal.entity = "appeal"
 appeal.mastodon = "4.3.0"
 created_at.mastodon = "4.3.0"
 
-[entity.account-warning-action]
-name = "Account Warning Action"
 [entity.account-warning-action.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/AccountWarning/#action"
@@ -103,8 +89,6 @@ sensitive.mastodon = "4.3.0"
 silence.mastodon = "4.3.0"
 suspend.mastodon = "4.3.0"
 
-[entity.appeal]
-name = "Appeal"
 [entity.appeal.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Appeal/"
@@ -113,8 +97,6 @@ text.mastodon = "4.3.0"
 state.entity = "appeal-state"
 state.mastodon = "4.3.0"
 
-[entity.appeal-state]
-name = "Appeal State"
 [entity.appeal-state.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Appeal/#state"
@@ -123,8 +105,6 @@ approved.mastodon = "4.3.0"
 rejected.mastodon = "4.3.0"
 pending.mastodon = "4.3.0"
 
-[entity.notification-group-type]
-name = "Notification Group Type"
 [entity.notification-group-type.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#query-parameters"
@@ -133,8 +113,6 @@ favourite.mastodon = "4.3.0"
 follow.mastodon = "4.3.0"
 reblog.mastodon = "4.3.0"
 
-[entity.notification-group-expand]
-name = "Notification Group Expand"
 [entity.notification-group-expand.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/grouped_notifications/#query-parameters"

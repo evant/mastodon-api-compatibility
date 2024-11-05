@@ -1,5 +1,3 @@
-[entity.notification]
-name = "Notification"
 [entity.notification.software]
 mastodon.version = "0.9.9"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Notification/"
@@ -15,8 +13,6 @@ report.mastodon = "4.0.0"
 relationship_severance_event.mastodon = "4.3.0"
 moderation_warning.mastodon = "4.3.0"
 
-[entity.notification-type]
-name = "Notification Type"
 [entity.notification-type.software]
 mastodon.version = "0.9.9"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Notification/#type"
@@ -34,8 +30,6 @@ update.mastodon = "3.5.0"
 severed_relationships.mastodon = "4.3.0"
 moderation_warning.mastodon = "4.3.0"
 
-[entity.notification-policy]
-name = "Notification Policy"
 [entity.notification-policy.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/NotificationPolicy/"
@@ -48,8 +42,6 @@ summary.mastodon = "3.4.0"
 "summary[pending_requests_count]".mastodon = "3.4.0"
 "summary[pending_notifications_count]".mastodon = "3.4.0"
 
-[entity.notification-request]
-name = "Notification Request"
 [entity.notification-request.software]
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/NotificationRequest/"

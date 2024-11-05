@@ -1,5 +1,3 @@
-[entity.media-attachment]
-name = "Media Attachment"
 [entity.media-attachment.software]
 mastodon.version = "0.6.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/MediaAttachment/"
@@ -20,8 +18,6 @@ description.mastodon = "2.0.0"
 blurhash.mastodon = "2.8.1"
 text_url.mastodon = { version = "0.6.0", removed = "3.5.0" }
 
-[entity.media-type]
-name = "Media Type"
 [entity.media-type.software]
 mastodon.version = "0.6.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/MediaAttachment/#type"
@@ -32,8 +28,6 @@ gifv.mastodon = "0.6.0"
 video.mastodon = "0.6.0"
 audio.mastodon = "2.9.1"
 
-[entity.media-meta-info]
-name = "Media Meta Info"
 [entity.media-meta-info.software]
 mastodon.version = "0.6.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/MediaAttachment/#meta"

@@ -1,5 +1,3 @@
-[entity.featured-tag]
-name = "Featured Tag"
 [entity.featured-tag.software]
 mastodon.version = "3.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/FeaturedTag/"

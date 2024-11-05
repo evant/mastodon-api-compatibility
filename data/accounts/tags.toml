@@ -1,5 +1,3 @@
-[entity.tag]
-name = "Tag"
 [entity.tag.software]
 mastodon.version = "0.9.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Status/#Tag"

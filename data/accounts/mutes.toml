@@ -1,5 +1,3 @@
-[entity.muted-account]
-name = "Muted Account"
 [entity.muted-account.software]
 mastodon.version = "0.0.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/Account/#MutedAccount"
