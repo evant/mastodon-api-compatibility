@@ -34,13 +34,13 @@ moderation_warning.mastodon = "4.3.0"
 mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/entities/NotificationPolicy/"
 [entity.notification-policy.attributes]
-for_not_following.mastodon = "3.4.0"
-for_not_followers.mastodon = "3.4.0"
-for_private_mentions.mastodon = "3.4.0"
-for_limited_accounts.mastodon = "3.4.0"
-summary.mastodon = "3.4.0"
-"summary[pending_requests_count]".mastodon = "3.4.0"
-"summary[pending_notifications_count]".mastodon = "3.4.0"
+for_not_following.mastodon = "4.3.0"
+for_not_followers.mastodon = "4.3.0"
+for_private_mentions.mastodon = "4.3.0"
+for_limited_accounts.mastodon = "4.3.0"
+summary.mastodon = "4.3.0"
+"summary[pending_requests_count]".mastodon = "4.3.0"
+"summary[pending_notifications_count]".mastodon = "4.3.0"
 
 [entity.notification-request.software]
 mastodon.version = "4.3.0"
@@ -120,78 +120,78 @@ count.mastodon = "4.3.0"
 request = "GET api/v2/notifications/policy"
 response = "notification-policy"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get-policy"
 
 [[api]]
 request = "PATCH /api/v2/notifications/policy"
 response = "notification-policy"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#update-the-filtering-policy-for-notifications"
 [api.params]
-for_not_following.mastodon = "3.4.0"
-for_not_followers.mastodon = "3.4.0"
-for_private_mentions.mastodon = "3.4.0"
-for_limited_accounts.mastodon = "3.4.0"
+for_not_following.mastodon = "4.3.0"
+for_not_followers.mastodon = "4.3.0"
+for_private_mentions.mastodon = "4.3.0"
+for_limited_accounts.mastodon = "4.3.0"
 
 [[api]]
 request = "GET /api/v1/notifications/requests"
 response = "notification-request[]"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get-requests"
 [api.params]
-max_id.mastodon = "3.4.0"
-since_id.mastodon = "3.4.0"
-min_id.mastodon = "3.4.0"
-limit.mastodon = "3.4.0"
+max_id.mastodon = "4.3.0"
+since_id.mastodon = "4.3.0"
+min_id.mastodon = "4.3.0"
+limit.mastodon = "4.3.0"
 
 [[api]]
 request = "GET /api/v1/notifications/requests/:id"
 response = "notification-request"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#get-one-request"
 [api.params]
-id.mastodon = "3.4.0"
+id.mastodon = "4.3.0"
 
 [[api]]
 request = "POST /api/v1/notifications/requests/:id/accept"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#accept-request"
 [api.params]
-id.mastodon = "3.4.0"
+id.mastodon = "4.3.0"
 
 [[api]]
 request = "POST /api/v1/notifications/requests/:id/dismiss"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#dismiss-request"
 [api.params]
-id.mastodon = "3.4.0"
+id.mastodon = "4.3.0"
 
 [[api]]
 request = "POST /api/v1/notifications/requests/accept"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#accept-multiple-requests"
 [api.params]
-"id[]".mastodon = "3.4.0"
+"id[]".mastodon = "4.3.0"
 
 [[api]]
 request = "POST /api/v1/notifications/requests/dismiss"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#dismiss-multiple-requests"
 [api.params]
-"id[]".mastodon = "3.4.0"
+"id[]".mastodon = "4.3.0"
 
 [[api]]
 request = "GET /api/v1/notifications/requests/merged"
 [api.software]
-mastodon.version = "3.4.0"
+mastodon.version = "4.3.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/notifications/#requests-merged"
 [api.response]
-merged.mastodon = "3.4.0"
+merged.mastodon = "4.3.0"
