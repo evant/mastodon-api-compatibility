@@ -1,0 +1,82 @@
+[entity.announcement.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Announcement/"
+[entity.announcement.attributes]
+id.mastodon = "3.1.0"
+content.mastodon = "3.1.0"
+starts_at.mastodon = "3.1.0"
+ends_at.mastodon = "3.1.0"
+published.mastodon = "3.1.0"
+all_day.mastodon = "3.1.0"
+published_at.mastodon = "3.1.0"
+updated_at.mastodon = "3.1.0"
+read.mastodon = "3.1.0"
+"mentions[]".entity = "announcement-account"
+"mentions[]".mastodon = "3.1.0"
+"statuses[]".entity = "announcement-status"
+"statuses[]".mastodon = "3.1.0"
+"tags[]".entity = "tag"
+"tags[]".mastodon = "3.1.0"
+"emojis[]".entity = "custom-emoji"
+"emojis[]".mastodon = "3.1.0"
+"reactions[]".entity = "reaction"
+"reactions[]".mastodon = "3.1.0"
+
+[entity.announcement-account.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Announcement/#Account"
+[entity.announcement-account.attributes]
+id.mastodon = "3.1.0"
+username.mastodon = "3.1.0"
+url.mastodon = "3.1.0"
+acct.mastodon = "3.1.0"
+
+[entity.announcement-status.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Announcement/#Status"
+[entity.announcement-status.attributes]
+id.mastodon = "3.1.0"
+url.mastodon = "3.1.0"
+
+[entity.reaction.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Reaction/"
+[entity.reaction.attributes]
+name.mastodon = "3.1.0"
+count.mastodon = "3.1.0"
+me.mastodon = "3.1.0"
+url.mastodon = "3.1.0"
+static_url.mastodon = "3.1.0"
+
+[[api]]
+request = "GET /api/v1/announcements"
+response = "announcement[]"
+[api.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/announcements/#get"
+
+[[api]]
+request = "POST /api/v1/announcements/:id/dismiss"
+[api.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/announcements/#dismiss"
+[api.params]
+id.mastodon = "3.1.0"
+
+[[api]]
+request = "PUT /api/v1/announcements/:id/reactions/:name"
+[api.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/announcements/#put-reactions"
+[api.params]
+id.mastodon = "3.1.0"
+name.mastodon = "3.1.0"
+
+[[api]]
+request = "DELETE /api/v1/announcements/:id/reactions/:name"
+[api.software]
+mastodon.version = "3.1.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/announcements/#delete-reactions"
+[api.params]
+id.mastodon = "3.1.0"
+name.mastodon = "3.1.0"
