@@ -1,0 +1,11 @@
+[[api]]
+request = "GET /api/v1/directory"
+response = "account[]"
+[api.software]
+mastodon.version = "3.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/directory/#get"
+[api.params]
+offset.mastodon = "3.0.0"
+limit.mastodon = "3.0.0"
+order.mastodon = "3.0.0"
+local.mastodon = "3.0.0"

@@ -1,0 +1,49 @@
+[entity.trends-link.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/PreviewCard/#trends-link"
+[entity.trends-link.attributes]
+"history[]".mastodon = "3.5.0"
+"history[][day]".mastodon = "3.5.0"
+"history[][accounts]".mastodon = "3.5.0"
+"history[][uses]".mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/trends"
+response = "tag[]"
+[api.software]
+mastodon.version = "3.0.0"
+mastodon.deprecated = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/trends/#tags"
+[api.params]
+limit.mastodon = "3.0.0"
+offset.mastodon = "3.0.0"
+
+[[api]]
+request = "GET /api/v1/trends/tags"
+response = "tag[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/trends/#tags"
+[api.params]
+limit.mastodon = "3.5.0"
+offset.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/trends/statuses"
+response = "status[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/trends/#statuses"
+[api.params]
+limit.mastodon = "3.5.0"
+offset.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/trends/links"
+response = "trends-link[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/trends/#links"
+[api.params]
+limit.mastodon = "3.5.0"
+offset.mastodon = "3.5.0"
