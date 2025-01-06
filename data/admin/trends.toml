@@ -1,0 +1,26 @@
+[entity.admin-tag.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Tag/#admin"
+[entity.admin-tag.attributes]
+id.mastodon = "3.5.0"
+trendable.mastodon = "3.5.0"
+usable.mastodon = "3.5.0"
+requires_review.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/admin/trends/links"
+response = "trends-link[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/trends/#links"
+
+[[api]]
+request = "GET /api/v1/admin/trends/statuses"
+response = "status[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/trends/#statuses"
+
+[[api]]
+request = "GET /api/v1/admin/trends/tags"
+response = "admin-tag[]"

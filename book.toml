@@ -6,6 +6,7 @@ src = "content"
 build-dir = "public"
 
 [output.html]
+no-section-label = true
 additional-css = ["css/mdbook-admonish.css", "css/custom.css"]
 git-repository-url = "https://github.com/evant/mastodon-api-compatibility"
 

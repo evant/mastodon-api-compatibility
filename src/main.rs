@@ -10,7 +10,10 @@ use std::{
 };
 
 use anyhow::Context;
-use mdbook::{book::Chapter, BookItem, MDBook};
+use mdbook::{
+    book::{Chapter, SectionNumber},
+    BookItem, MDBook,
+};
 use mdbook_admonish::Admonish;
 use parse::{parse_data_file, parse_software_file};
 use serde::Serialize;
@@ -258,6 +261,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     md.book
         .push_item(BookItem::PartTitle("Api Methods".to_string()));
 
+    let mut section_number = vec![0];
+
     for (path, apis) in apis.into_iter() {
         for api in &apis {
             check_software_exists(&software, None, &api.request, &api.software)?;
@@ -278,7 +283,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         let name = path.file_stem().unwrap().to_string_lossy();
 
         let apis_page = ApisPage {
-            title: &name,
+            title: &name.replace("_", " "),
             software: &software,
             entities: &entities,
             apis: &apis,
@@ -297,11 +302,26 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             .map(|p| p.to_string_lossy().to_string())
             .collect();
 
-        let mut rendered_name = "&emsp;".repeat(parent_names.len());
-        rendered_name.push_str(&name);
+        let depth = parent_names.len() + 1;
 
-        md.book
-            .push_item(Chapter::new(&rendered_name, rendered, path, parent_names));
+        let mut chapter = Chapter::new(
+            &name,
+            rendered,
+            path.to_string_lossy().to_string(),
+            parent_names,
+        );
+
+        if depth > section_number.len() {
+            section_number.push(1);
+        } else if depth < section_number.len() {
+            section_number.truncate(depth);
+            *section_number.last_mut().unwrap() += 1;
+        } else {
+            *section_number.last_mut().unwrap() += 1;
+        }
+        chapter.number = Some(SectionNumber(section_number.clone()));
+
+        md.book.push_item(chapter);
     }
 
     md.book

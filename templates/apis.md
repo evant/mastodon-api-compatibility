@@ -1,7 +1,7 @@
 {% import "software-table.md" as software %}
 {% import "version-table.md" as version %}
 
-# {{ title | capitalize }}
+# {{ title | title }}
 
 {% for api in apis %}
 ## {{ api.request }}

@@ -1,0 +1,36 @@
+[entity.admin-cohort.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Cohort/"
+[entity.admin-cohort.attributes]
+period.mastodon = "3.5.0"
+frequency.entity = "admin-cohort-frequency"
+frequency.mastodon = "3.5.0"
+data.entity = "admin-cohort-data"
+data.mastodon = "3.5.0"
+
+[entity.admin-cohort-frequency.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Cohort/#frequency"
+[entity.admin-cohort-frequency.values]
+day.mastodon = "3.5.0"
+month.mastodon = "3.5.0"
+
+[entity.admin-cohort-data.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Cohort/#CohortData"
+[entity.admin-cohort-data.attributes]
+date.mastodon = "3.5.0"
+rate.mastodon = "3.5.0"
+value.mastodon = "3.5.0"
+
+[[api]]
+request = "POST /api/v1/admin/retention"
+response = "admin-cohort[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/retention/#create"
+[api.params]
+start_at.mastodon = "3.5.0"
+end_at.mastodon = "3.5.0"
+frequency.entity = "admin-cohort-frequency"
+frequency.mastodon = "3.5.0"
