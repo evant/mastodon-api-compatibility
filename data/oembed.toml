@@ -1,0 +1,26 @@
+[entity.oembed.software]
+mastodon.version = "1.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/oembed/#200-ok"
+[entity.oembed.attributes]
+type.mastodon = "1.0.0"
+version.mastodon = "1.0.0"
+title.mastodon = "1.0.0"
+author_name.mastodon = "1.0.0"
+author_url.mastodon = "1.0.0"
+provider_name.mastodon = "1.0.0"
+provider_url.mastodon = "1.0.0"
+cache_age.mastodon = "1.0.0"
+html.mastodon = "1.0.0"
+width.mastodon = "1.0.0"
+height.mastodon = "1.0.0"
+
+[[api]]
+request = "GET /api/oembed"
+response = "oembed"
+[api.software]
+mastodon.version = "1.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/oembed/#get"
+[api.params]
+url.mastodon = "1.0.0"
+maxwidth.mastodon = "1.0.0"
+maxheight.mastodon = "1.0.0"
