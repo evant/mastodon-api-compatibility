@@ -27,4 +27,4 @@ response = "admin-tag[]"
 [api.software]
 mastodon.version = "3.5.0"
 mastodon.docs = "https://docs.joinmastodon.org/methods/admin/trends/#tags"
-mastodon.note = "returns an array in 4.0.0"
+mastodon.note = "returns an array of Tag in 4.0.0"
