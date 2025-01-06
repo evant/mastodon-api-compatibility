@@ -1,0 +1,52 @@
+[entity.admin-measure.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Measure/"
+[entity.admin-measure.attributes]
+key.entity = "admin-measure-key"
+key.mastodon = "3.5.0"
+unit.mastodon = "3.5.0"
+total.mastodon = "3.5.0"
+human_value.mastodon = "3.5.0"
+previous_total.mastodon = "3.5.0"
+"data[][date]".mastodon = "3.5.0"
+"data[][value]".mastodon = "3.5.0"
+
+[entity.admin-measure-key.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/measures/#form-data-parameters"
+[entity.admin-measure-key.values]
+active_users.mastodon = "3.5.0"
+new_users.mastodon = "3.5.0"
+interactions.mastodon = "3.5.0"
+opened_reports.mastodon = "3.5.0"
+resolved_reports.mastodon = "3.5.0"
+tag_accounts.mastodon = "3.5.0"
+tag_uses.mastodon = "3.5.0"
+tag_servers.mastodon = "3.5.0"
+instance_accounts.mastodon = "3.5.0"
+instance_media_attachments.mastodon = "3.5.0"
+instance_reports.mastodon = "3.5.0"
+instance_statuses.mastodon = "3.5.0"
+instance_follows.mastodon = "3.5.0"
+instance_followers.mastodon = "3.5.0"
+
+[[api]]
+request = "POST /api/v1/admin/measures"
+response = "admin-measure"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/measures/#get"
+[api.params]
+"keys[]".entity = "admin-measure-key"
+"keys[]".mastodon = "3.5.0"
+start_at.mastodon = "3.5.0"
+end_at.mastodon = "3.5.0"
+"tag_accounts[id]".mastodon = "3.5.0"
+"tag_uses[id]".mastodon = "3.5.0"
+"tag_servers[id]".mastodon = "3.5.0"
+"instance_accounts[domain]".mastodon = "3.5.0"
+"instance_media_attachments[domain]".mastodon = "3.5.0"
+"instance_reports[domain]".mastodon = "3.5.0"
+"instance_statuses[domain]".mastodon = "3.5.0"
+"instance_follows[domain]".mastodon = "3.5.0"
+"instance_followers[domain]".mastodon = "3.5.0"

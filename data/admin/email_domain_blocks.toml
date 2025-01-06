@@ -1,0 +1,48 @@
+[entity.admin-email-domain-block.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_EmailDomainBlock/"
+[entity.admin-email-domain-block.attributes]
+id.mastodon = "4.0.0"
+domain.mastodon = "4.0.0"
+created_at.mastodon = "4.0.0"
+"history[][day]".mastodon = "4.0.0"
+"history[][accounts]".mastodon = "4.0.0"
+"history[][uses]".mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/email_domain_blocks"
+response = "admin-email-domain-block[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/email_domain_blocks/#get"
+[api.params]
+max_id.mastodon = "4.0.0"
+since_id.mastodon = "4.0.0"
+min_id.mastodon = "4.0.0"
+limit.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/email_domain_blocks/:id"
+response = "admin-email-domain-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/email_domain_blocks/#get-one"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/admin/email_domain_blocks"
+response = "admin-email-domain-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/email_domain_blocks/#create"
+[api.params]
+domain.mastodon = "4.0.0"
+
+[[api]]
+request = "DELETE /api/v1/admin/email_domain_blocks/:id"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/email_domain_blocks/#delete"
+[api.params]
+id.mastodon = "4.0.0"

@@ -1,0 +1,49 @@
+[entity.admin-dimension.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Dimension/"
+[entity.admin-dimension.attributes]
+key.entity = "admin-dimension-key"
+key.mastodon = "3.5.0"
+"data[]".entity = "admin-dimension-data"
+"data[]".mastodon = "3.5.0"
+
+[entity.admin-dimension-data.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Dimension/#data-attributes"
+[entity.admin-dimension-data.attributes]
+key.mastodon = "3.5.0"
+human_key.mastodon = "3.5.0"
+value.mastodon = "3.5.0"
+unit.mastodon = "3.5.0"
+human_value.mastodon = "3.5.0"
+
+[entity.admin-dimension-key.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/dimensions/#form-data-parameters"
+[entity.admin-dimension-key.values]
+languages.mastodon = "3.5.0"
+sources.mastodon = "3.5.0"
+servers.mastodon = "3.5.0"
+space_usage.mastodon = "3.5.0"
+software_versions.mastodon = "3.5.0"
+tag_servers.mastodon = "3.5.0"
+tag_languages.mastodon = "3.5.0"
+instance_accounts.mastodon = "3.5.0"
+instance_languages.mastodon = "3.5.0"
+
+[[api]]
+request = "POST /api/v1/admin/dimensions"
+response = "admin-dimension[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/dimensions/#get"
+[api.params]
+"keys[]".entity = "admin-dimension-key"
+"keys[]".mastodon = "3.5.0"
+start_at.mastodon = "3.5.0"
+end_at.mastodon = "3.5.0"
+limit.mastodon = "3.5.0"
+"tag_servers[id]".mastodon = "3.5.0"
+"tag_languages[id]".mastodon = "3.5.0"
+"instance_accounts[domain]".mastodon = "3.5.0"
+"instance_languages[domain]".mastodon = "3.5.0"

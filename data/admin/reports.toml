@@ -1,0 +1,102 @@
+[entity.admin-report.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Report/"
+[entity.admin-report.attributes]
+id.mastodon = "2.9.1"
+action_taken.mastodon = "2.9.1"
+action_taken_at.mastodon = "2.9.1"
+category.entity = "admin-report-category"
+category.mastodon = "3.5.0"
+comment.mastodon = "2.9.1"
+forwarded.mastodon = "4.0.0"
+created_at.mastodon = "2.9.1"
+updated_at.mastodon = "2.9.1"
+account.entity = "admin-account"
+account.mastodon = "2.9.1"
+target_account.entity = "admin-account"
+target_account.mastodon = "2.9.1"
+assigned_account.entity = "admin-account"
+assigned_account.mastodon = "2.9.1"
+action_taken_by_account.entity = "admin-account"
+action_taken_by_account.mastodon = "2.9.1"
+"statuses[]".entity = "status"
+"statuses[]".mastodon = "2.9.1"
+"rules[]".entity = "rule"
+"rules[]".mastodon = "3.5.0"
+
+[entity.admin-report-category.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Report/#category"
+[entity.admin-report-category.values]
+spam.mastodon = "3.5.0"
+violation.mastodon = "3.5.0"
+other.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/admin/reports"
+response = "admin-report[]"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/reports/#get"
+[api.params]
+resolved.mastodon = "2.9.1"
+account_id.mastodon = "2.9.1"
+target_account_id.mastodon = "2.9.1"
+limit.mastodon = "2.9.1"
+
+[[api]]
+request = "GET /api/v1/admin/reports/:id"
+response = "admin-report"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/reports/#get-one"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "PUT /api/v1/admin/reports/:id"
+response = "admin-report"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/reports/#update"
+[api.params]
+id.mastodon = "3.5.0"
+category.entity = "admin-report-category"
+category.mastodon = "3.5.0"
+"rule_ids[]".mastodon = "3.5.0"
+
+[[api]]
+request = "POST /api/v1/admin/reports/:id/assign_to_self"
+response = "admin-report"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/reports/#assign_to_self"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/reports/:id/unassign"
+response = "admin-report"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/reports/#unassign"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/reports/:id/resolve"
+response = "admin-report"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/reports/#resolve"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/reports/:id/reopen"
+response = "admin-report"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/reports/#reopen"
+[api.params]
+id.mastodon = "2.9.1"

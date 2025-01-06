@@ -1,0 +1,45 @@
+[entity.admin-domain-allow.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_DomainAllow/"
+[entity.admin-domain-allow.attributes]
+id.mastodon = "4.0.0"
+domain.mastodon = "4.0.0"
+created_at.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/domain_allows"
+response = "admin-domain-allow[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_allows/#get"
+[api.params]
+max_id.mastodon = "4.0.0"
+since_id.mastodon = "4.0.0"
+min_id.mastodon = "4.0.0"
+limit.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/domain_allows/:id"
+response = "admin-domain-allow"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_allows/#get-one"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/admin/domain_allows"
+response = "admin-domain-allow"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_allows/#create"
+[api.params]
+domain.mastodon = "4.0.0"
+
+[[api]]
+request = "DELETE /api/v1/admin/domain_allows/:id"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_allows/#delete"
+[api.params]
+id.mastodon = "4.0.0"

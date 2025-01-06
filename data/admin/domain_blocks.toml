@@ -1,0 +1,84 @@
+[entity.admin-domain-block.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_DomainBlock/"
+[entity.admin-domain-block.attributes]
+id.mastodon = "4.0.0"
+domain.mastodon = "4.0.0"
+digest.mastodon = "4.3.0"
+created_at.mastodon = "4.0.0"
+severity.entity = "admin-domain-block-severity"
+severity.mastodon = "4.0.0"
+reject_media.mastodon = "4.0.0"
+reject_reports.mastodon = "4.0.0"
+private_comment.mastodon = "4.0.0"
+public_comment.mastodon = "4.0.0"
+obfuscate.mastodon = "4.0.0"
+
+[entity.admin-domain-block-severity.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_DomainBlock/#severity"
+[entity.admin-domain-block-severity.values]
+silence.mastodon = "4.0.0"
+suspend.mastodon = "4.0.0"
+noop.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/domain_blocks"
+response = "admin-domain-block[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_blocks/#get"
+[api.params]
+max_id.mastodon = "4.0.0"
+since_id.mastodon = "4.0.0"
+min_id.mastodon = "4.0.0"
+limit.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/domain_blocks/:id"
+response = "admin-domain-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_blocks/#get-one"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/admin/domain_blocks"
+response = "admin-domain-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_blocks/#create"
+[api.params]
+domain.mastodon = "4.0.0"
+severity.entity = "admin-domain-block-severity"
+severity.mastodon = "4.0.0"
+reject_media.mastodon = "4.0.0"
+reject_reports.mastodon = "4.0.0"
+private_comment.mastodon = "4.0.0"
+public_comment.mastodon = "4.0.0"
+obfuscate.mastodon = "4.0.0"
+
+[[api]]
+request = "PUT /api/v1/admin/domain_blocks/:id"
+response = "admin-domain-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_blocks/#update"
+[api.params]
+id.mastodon = "4.0.0"
+severity.entity = "admin-domain-block-severity"
+severity.mastodon = "4.0.0"
+reject_media.mastodon = "4.0.0"
+reject_reports.mastodon = "4.0.0"
+private_comment.mastodon = "4.0.0"
+public_comment.mastodon = "4.0.0"
+obfuscate.mastodon = "4.0.0"
+
+[[api]]
+request = "DELETE /api/v1/admin/domain_blocks/:id"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/domain_blocks/#delete"
+[api.params]
+id.mastodon = "4.0.0"

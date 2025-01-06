@@ -1,0 +1,195 @@
+[entity.admin-account.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Account/"
+[entity.admin-account.attributes]
+id.mastodon = "2.9.1"
+username.mastodon = "2.9.1"
+domain.mastodon = "2.9.1"
+created_at.mastodon = "2.9.1"
+email.mastodon = "2.9.1"
+ip.mastodon = { version = "2.9.1", note = "type is Admin Ip in 3.5.0-4.0.0" }
+"ips[]".entity = "admin-ip"
+"ips[]".mastodon = "3.5.0"
+locale.mastodon = "2.9.1"
+invite_request.mastodon = "2.9.1"
+role.entity = "role"
+role.mastodon = "2.9.1"
+confirmed.mastodon = "2.9.1"
+approved.mastodon = "2.9.1"
+disabled.mastodon = "2.9.1"
+silenced.mastodon = "2.9.1"
+suspended.mastodon = "2.9.1"
+account.entity = "account"
+account.mastodon = "2.9.1"
+created_by_application_id.mastodon = "2.9.1"
+invited_by_account_id.mastodon = "2.9.1"
+
+[entity.admin-ip.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_Ip/"
+[entity.admin-ip.attributes]
+ip.mastodon = "3.5.0"
+used_at.mastodon = "3.5.0"
+
+[entity.origin-type.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#query-parameters-1"
+[entity.origin-type.values]
+local.mastodon = "3.5.0"
+remote.mastodon = "3.5.0"
+
+[entity.status-type.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#query-parameters-1"
+[entity.status-type.values]
+active.mastodon = "3.5.0"
+pending.mastodon = "3.5.0"
+disabled.mastodon = "3.5.0"
+silenced.mastodon = "3.5.0"
+suspended.mastodon = "3.5.0"
+
+[entity.admin-action-type.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#form-data-parameters"
+[entity.admin-action-type.values]
+none.mastodon = "2.9.1"
+sensitive.mastodon = "3.3.0"
+disable.mastodon = "2.9.1"
+silence.mastodon = "2.9.1"
+suspend.mastodon = "2.9.1"
+
+[[api]]
+request = "GET /api/v1/admin/accounts"
+response = "admin-account[]"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#v1"
+[api.params]
+local.mastodon = "2.9.1"
+remote.mastodon = "2.9.1"
+active.mastodon = "2.9.1"
+pending.mastodon = "2.9.1"
+disabled.mastodon = "2.9.1"
+silenced.mastodon = "2.9.1"
+suspended.mastodon = "2.9.1"
+sensitized.mastodon = "3.3.0"
+username.mastodon = "2.9.1"
+display_name.mastodon = "2.9.1"
+by_domain.mastodon = "2.9.1"
+email.mastodon = "2.9.1"
+ip.mastodon = "2.9.1"
+staff.mastodon = "2.9.1"
+max_id.mastodon = "2.9.1"
+since_id.mastodon = "2.9.1"
+min_id.mastodon = "2.9.1"
+limit.mastodon = "2.9.1"
+
+[[api]]
+request = "GET /api/v2/admin/accounts"
+response = "admin-account[]"
+[api.software]
+mastodon.version = "3.5.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#v2"
+[api.params]
+origin.entity = "origin-type"
+origin.mastodon = "3.5.0"
+status.entity = "status-type"
+status.mastodon = "3.5.0"
+permissions.mastodon = "3.5.0"
+"role_ids[]".mastodon = "4.0.0"
+invited_by.mastodon = "3.5.0"
+username.mastodon = "3.5.0"
+display_name.mastodon = "3.5.0"
+by_domain.mastodon = "3.5.0"
+email.mastodon = "3.5.0"
+ip.mastodon = "3.5.0"
+max_id.mastodon = "3.5.0"
+since_id.mastodon = "3.5.0"
+min_id.mastodon = "3.5.0"
+limit.mastodon = "3.5.0"
+
+[[api]]
+request = "GET /api/v1/admin/accounts/:id"
+response = "admin-account"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#get-one"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/accounts/:id/approve"
+response = "admin-account"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#approve"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/accounts/:id/reject"
+response = "admin-account"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#reject"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "DELETE /api/v1/admin/accounts/:id"
+response = "admin-account"
+[api.software]
+mastodon.version = "3.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#delete"
+[api.params]
+id.mastodon = "3.3.0"
+
+[[api]]
+request = "POST /api/v1/admin/accounts/:id/action"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#action"
+[api.params]
+id.mastodon = "2.9.1"
+type.entity = "admin-action-type"
+type.mastodon = "2.9.1"
+report_id.mastodon = "2.9.1"
+warning_preset_id.mastodon = "2.9.1"
+text.mastodon = "2.9.1"
+send_email_notification.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/accounts/:id/enable"
+response = "admin-account"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#enable"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/accounts/:id/unsilence"
+response = "admin-account"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#unsilence"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/accounts/:id/unsuspend"
+response = "admin-account"
+[api.software]
+mastodon.version = "2.9.1"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#unsuspend"
+[api.params]
+id.mastodon = "2.9.1"
+
+[[api]]
+request = "POST /api/v1/admin/accounts/:id/unsensitive"
+response = "admin-account"
+[api.software]
+mastodon.version = "3.3.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/accounts/#unsensitive"
+[api.params]
+id.mastodon = "3.3.0"

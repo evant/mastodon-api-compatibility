@@ -1,0 +1,54 @@
+[entity.canonical-email-block.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_CanonicalEmailBlock/"
+[entity.canonical-email-block.attributes]
+id.mastodon = "4.0.0"
+canonical_email_hash.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/canonical_email_blocks"
+response = "canonical-email-block[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/canonical_email_blocks/#get"
+[api.params]
+max_id.mastodon = "4.0.0"
+since_id.mastodon = "4.0.0"
+min_id.mastodon = "4.0.0"
+limit.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/canonical_email_blocks/:id"
+response = "canonical-email-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/canonical_email_blocks/#get-one"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/admin/canonical_email_blocks/test"
+response = "canonical-email-block[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/canonical_email_blocks/#test"
+[api.params]
+email.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/admin/canonical_email_blocks"
+response = "canonical-email-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/canonical_email_blocks/#create"
+[api.params]
+email.mastodon = "4.0.0"
+canonical_email_hash.mastodon = "4.0.0"
+
+[[api]]
+request = "DELETE /api/v1/admin/canonical_email_blocks/:id"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/canonical_email_blocks/#delete"
+[api.params]
+id.mastodon = "4.0.0"

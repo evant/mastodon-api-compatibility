@@ -1,0 +1,75 @@
+[entity.admin-ip-block.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_IpBlock/"
+[entity.admin-ip-block.attributes]
+id.mastodon = "4.0.0"
+ip.mastodon = "4.0.0"
+severity.entity = "admin-ip-block-severity"
+severity.mastodon = "4.0.0"
+comment.mastodon = "4.0.0"
+created_at.mastodon = "4.0.0"
+expires_at.mastodon = "4.0.0"
+
+[entity.admin-ip-block-severity.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/entities/Admin_IpBlock/#severity"
+[entity.admin-ip-block-severity.values]
+sign_up_requires_approval.mastodon = "4.0.0"
+sign_up_block.mastodon = "4.0.0"
+no_access.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/ip_blocks"
+response = "admin-ip-block[]"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/ip_blocks/#get"
+[api.params]
+max_id.mastodon = "4.0.0"
+since_id.mastodon = "4.0.0"
+min_id.mastodon = "4.0.0"
+limit.mastodon = "4.0.0"
+
+[[api]]
+request = "GET /api/v1/admin/ip_blocks/:id"
+response = "admin-ip-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/ip_blocks/#get-one"
+[api.params]
+id.mastodon = "4.0.0"
+
+[[api]]
+request = "POST /api/v1/admin/ip_blocks"
+response = "admin-ip-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/ip_blocks/#create"
+[api.params]
+ip.mastodon = "4.0.0"
+severity.entity = "admin-ip-block-severity"
+severity.mastodon = "4.0.0"
+comment.mastodon = "4.0.0"
+expires_in.mastodon = "4.0.0"
+
+[[api]]
+request = "PUT /api/v1/admin/ip_blocks/:id"
+response = "admin-ip-block"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/ip_blocks/#update"
+[api.params]
+id.mastodon = "4.0.0"
+ip.mastodon = "4.0.0"
+severity.entity = "admin-ip-block-severity"
+severity.mastodon = "4.0.0"
+comment.mastodon = "4.0.0"
+expires_in.mastodon = "4.0.0"
+
+[[api]]
+request = "DELETE /api/v1/admin/ip_blocks/:id"
+[api.software]
+mastodon.version = "4.0.0"
+mastodon.docs = "https://docs.joinmastodon.org/methods/admin/ip_blocks/#delete"
+[api.params]
+id.mastodon = "4.0.0"
